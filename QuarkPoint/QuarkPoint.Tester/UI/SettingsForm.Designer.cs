@@ -63,7 +63,7 @@
             // btnSelectTemplatePath
             // 
             this.btnSelectTemplatePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectTemplatePath.Location = new System.Drawing.Point(505, 23);
+            this.btnSelectTemplatePath.Location = new System.Drawing.Point(497, 22);
             this.btnSelectTemplatePath.Name = "btnSelectTemplatePath";
             this.btnSelectTemplatePath.Size = new System.Drawing.Size(42, 23);
             this.btnSelectTemplatePath.TabIndex = 14;
@@ -78,12 +78,13 @@
             this.txtTemplatePath.Location = new System.Drawing.Point(12, 25);
             this.txtTemplatePath.Name = "txtTemplatePath";
             this.txtTemplatePath.ReadOnly = true;
-            this.txtTemplatePath.Size = new System.Drawing.Size(487, 20);
+            this.txtTemplatePath.Size = new System.Drawing.Size(479, 20);
             this.txtTemplatePath.TabIndex = 12;
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(457, 310);
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.Location = new System.Drawing.Point(449, 159);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(90, 27);
             this.btnOK.TabIndex = 15;
@@ -93,7 +94,8 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(361, 310);
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(353, 159);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 27);
             this.btnCancel.TabIndex = 16;
@@ -116,7 +118,7 @@
             // btnSelectTempPath
             // 
             this.btnSelectTempPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectTempPath.Location = new System.Drawing.Point(505, 67);
+            this.btnSelectTempPath.Location = new System.Drawing.Point(497, 66);
             this.btnSelectTempPath.Name = "btnSelectTempPath";
             this.btnSelectTempPath.Size = new System.Drawing.Size(42, 23);
             this.btnSelectTempPath.TabIndex = 19;
@@ -131,7 +133,7 @@
             this.txtTempPath.Location = new System.Drawing.Point(12, 69);
             this.txtTempPath.Name = "txtTempPath";
             this.txtTempPath.ReadOnly = true;
-            this.txtTempPath.Size = new System.Drawing.Size(487, 20);
+            this.txtTempPath.Size = new System.Drawing.Size(479, 20);
             this.txtTempPath.TabIndex = 17;
             // 
             // label3
@@ -149,7 +151,7 @@
             // btnSelectReportPath
             // 
             this.btnSelectReportPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectReportPath.Location = new System.Drawing.Point(505, 117);
+            this.btnSelectReportPath.Location = new System.Drawing.Point(497, 116);
             this.btnSelectReportPath.Name = "btnSelectReportPath";
             this.btnSelectReportPath.Size = new System.Drawing.Size(42, 23);
             this.btnSelectReportPath.TabIndex = 22;
@@ -164,14 +166,14 @@
             this.txtReportPath.Location = new System.Drawing.Point(12, 119);
             this.txtReportPath.Name = "txtReportPath";
             this.txtReportPath.ReadOnly = true;
-            this.txtReportPath.Size = new System.Drawing.Size(487, 20);
+            this.txtReportPath.Size = new System.Drawing.Size(479, 20);
             this.txtReportPath.TabIndex = 20;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 349);
+            this.ClientSize = new System.Drawing.Size(551, 198);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSelectReportPath);
             this.Controls.Add(this.txtReportPath);

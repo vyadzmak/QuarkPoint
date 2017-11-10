@@ -34,6 +34,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Open XML SDK\V2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
@@ -48,7 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\TemplateModels\TemplateElement.cs" />
+    <Compile Include="Models\TemplateModels\TemplateMerge.cs" />
     <Compile Include="Models\TemplateModels\TemplateModel.cs" />
+    <Compile Include="Models\TemplateModels\TemplateParagraph.cs" />
+    <Compile Include="Models\TemplateModels\TemplateStyle.cs" />
+    <Compile Include="Models\TemplateModels\TemplateTable.cs" />
+    <Compile Include="Models\TemplateModels\TemplateTableCell.cs" />
+    <Compile Include="Models\TemplateModels\TemplateTableFooter.cs" />
+    <Compile Include="Models\TemplateModels\TemplateTableHeader.cs" />
+    <Compile Include="Models\TemplateModels\TemplateTableRow.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

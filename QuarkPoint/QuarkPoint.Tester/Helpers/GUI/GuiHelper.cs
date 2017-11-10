@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using QuarkPoint.Exporter.Models.TemplateModels;
+using QuarkPoint.Tester.Helpers.Controls;
 using QuarkPoint.Tester.UI;
 
 namespace QuarkPoint.Tester.Helpers.GUI
@@ -23,7 +27,13 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
-                MessageBox.Show("OK");
+                DialogResult result = MessageBox.Show("Вы действительно хотите выйти?", "Выход",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
             }
             catch (Exception exception)
             {
@@ -59,10 +69,33 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
+                Program.MainForm.ofd.Multiselect = false;
+                Program.MainForm.ofd.InitialDirectory = Program.MainForm.settings.TemplateFolder+"\\";
+                Program.MainForm.ofd.Filter = "Шаблоны (*.json)|*.json|Все файлы (*.*)|*.*";
+                if (Program.MainForm.ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName = Program.MainForm.ofd.FileName;
+                    if (!string.IsNullOrEmpty(fileName))
+                    {
+                        Program.MainForm.CurrentTemplate = new TemplateModel();
+                        //Program.MainForm.CurrentTemplate.Load(fileName);
 
+                        using (StreamReader file = File.OpenText(fileName))
+                        {
+                            JsonSerializer serializer = new JsonSerializer();
+                            Program.MainForm.CurrentTemplate = (TemplateModel)serializer.Deserialize(file, typeof(TemplateModel));
+                            GuiEventListeners.UnlockControlsWithNewTemplate();
+                            GuiListHelper.LoadElements();
+                            GuiEventListeners.UpdateFormTitle();
+
+                        }
+                    }
+                }
             }
             catch (Exception exception)
             {
+                MessageBox.Show("Ошибка открытия шаблона. " + exception.Message, "Ошибка I/O", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 Program.log.Error(exception);
 
             }
@@ -151,7 +184,10 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
-
+                string templateName = Program.MainForm.CurrentTemplate.Name + ".json";
+                string templatePath = Path.Combine(Program.MainForm.settings.TemplateFolder, templateName);
+                Program.MainForm.CurrentTemplate.Save(templatePath);
+                GuiEventListeners.UpdateFormTitle();
             }
             catch (Exception exception)
             {
@@ -209,7 +245,7 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
-
+                
             }
             catch (Exception exception)
             {
@@ -227,12 +263,35 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
-
+                NewElementForm form = new NewElementForm();
+                form.Show();
             }
             catch (Exception exception)
             {
                 Program.log.Error(exception);
 
+            }
+        }
+
+        /// <summary>
+        /// change lb indexes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void LbTemplateElements_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = Program.MainForm.lbTemplateElements.SelectedIndex;
+
+                Program.MainForm.CurrentElement =
+                    Program.MainForm.CurrentTemplate.Elements.FirstOrDefault(x => x.Index == index);
+
+                ControlLoader.LoadControlByElement();
+
+            }
+            catch (Exception exception)
+            {
             }
         }
         #endregion
@@ -259,6 +318,8 @@ namespace QuarkPoint.Tester.Helpers.GUI
                 form.tsbRemoveElement.Click += TsbRemoveElement_Click;
                 form.tsbDownElement.Click += TsbDownElement_Click;
                 form.tsbUpElement.Click += TsbUpElement_Click;
+                //list
+                form.lbTemplateElements.SelectedIndexChanged += LbTemplateElements_SelectedIndexChanged;
             }
             catch (Exception exception)
             {
@@ -267,5 +328,6 @@ namespace QuarkPoint.Tester.Helpers.GUI
             }
         }
 
+        
     }
 }

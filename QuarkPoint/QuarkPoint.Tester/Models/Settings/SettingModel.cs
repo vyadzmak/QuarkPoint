@@ -122,6 +122,8 @@ namespace QuarkPoint.Tester.Models.Settings
         #endregion
 
         #region fields
+        [JsonIgnore]
+        public string AppName = "Quark";
         /// <summary>
         /// settings path
         /// </summary>

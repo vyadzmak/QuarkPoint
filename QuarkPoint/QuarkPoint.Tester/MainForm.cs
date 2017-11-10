@@ -2,6 +2,8 @@
 using System.IO;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using NLog.Targets.Wrappers;
+using QuarkPoint.Exporter.Models.TemplateModels;
 using QuarkPoint.Tester.Helpers.GUI;
 using QuarkPoint.Tester.Models.Settings;
 
@@ -14,6 +16,19 @@ namespace QuarkPoint.Tester
         /// settings
         /// </summary>
         public SettingModel settings = null;
+
+        /// <summary>
+        /// current template
+        /// </summary>
+        public Exporter.Models.TemplateModels.TemplateModel CurrentTemplate = null;
+
+        /// <summary>
+        /// selected element
+        /// </summary>
+        public TemplateElement CurrentElement = null;
+
+        
+        
         #endregion
         #region constructor
 
@@ -66,6 +81,19 @@ namespace QuarkPoint.Tester
                 if (settings == null)
                 {
                     settings = new SettingModel(Program.SettingsPath);
+                }
+
+                if (CurrentTemplate == null)
+                {
+                    ts.Enabled = false;
+                    container.Enabled = true;
+                    tsmExportToDb.Enabled = false;
+                    tsmSaveTemplate.Enabled = false;
+                    tsmGenerateFullTemplate.Enabled = false;
+                    tsmGenerateSelectedElement.Enabled = false;
+
+
+
                 }
             }
             catch (Exception e)

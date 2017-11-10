@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("QuarkPoint.Exporter")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Exporter for Landau")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Netvix")]
 [assembly: AssemblyProduct("QuarkPoint.Exporter")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
