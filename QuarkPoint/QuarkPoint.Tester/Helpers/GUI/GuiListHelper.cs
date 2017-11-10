@@ -73,6 +73,7 @@ namespace QuarkPoint.Tester.Helpers.GUI
                 var template = Program.MainForm.CurrentTemplate;
 
                 var list = Program.MainForm.lbTemplateElements;
+                list.Items.Clear();
                 foreach (var element in template.Elements)
                 {
 
@@ -82,7 +83,7 @@ namespace QuarkPoint.Tester.Helpers.GUI
                     int index = list.Items.Count - 1;
                     element.Index = index;
                 }
-                SelectLastItem();
+                SelectFirstItem();
             }
             catch (Exception e)
             {

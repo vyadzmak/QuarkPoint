@@ -68,7 +68,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
                 using (StreamWriter file = File.CreateText(templatePath))
                 using (JsonTextWriter writer = new JsonTextWriter(file))
                 {
-                    writer.QuoteChar = '\'';
+                    writer.QuoteChar = '"';
 
                     JsonSerializer ser = new JsonSerializer();
                     ser.Serialize(writer, this);

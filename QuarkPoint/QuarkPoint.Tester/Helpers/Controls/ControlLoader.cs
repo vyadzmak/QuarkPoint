@@ -19,9 +19,10 @@ namespace QuarkPoint.Tester.Helpers.Controls
         {
             try
             {
-                var container = Program.MainForm.pContainer;
+                var container = Program.MainForm.container.Panel2;
                 container.Controls.Clear();
                 container.Controls.Add(control);
+                
             }
             catch (Exception e)
             {
@@ -43,6 +44,7 @@ namespace QuarkPoint.Tester.Helpers.Controls
                 {
                         case ElementType.Текст:
                         ParagraphPropertiesControl pControl = new ParagraphPropertiesControl();
+                        pControl.InitControl();
                         LoadControl(pControl);
                         break;
 

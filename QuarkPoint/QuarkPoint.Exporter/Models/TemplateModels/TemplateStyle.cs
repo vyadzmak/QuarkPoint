@@ -15,7 +15,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
     /// <summary>
     /// font name
     /// </summary>
-    public enum FontName { Arial=0, TimesNewRoman=1, Calibri =2}
+    public enum FontName { Arial=0, Times=1, Calibri =2}
     
     /// <summary>
     /// text align
@@ -33,7 +33,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         {
             try
             {
-                FontName = FontName.Arial;
+                FontName = FontName.Times;
                 FontWeight = FontWeight.Normal;
                 FontSize = 10;
                 ForegroundColor = "#000000";

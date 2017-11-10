@@ -87,7 +87,7 @@ namespace QuarkPoint.Tester.Helpers.GUI
                             GuiEventListeners.UnlockControlsWithNewTemplate();
                             GuiListHelper.LoadElements();
                             GuiEventListeners.UpdateFormTitle();
-
+                            
                         }
                     }
                 }

@@ -50,10 +50,8 @@
             this.tsmGenerateSelectedElement = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmGenerateFullTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
-            this.pContainer = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
             this.container.Panel1.SuspendLayout();
-            this.container.Panel2.SuspendLayout();
             this.container.SuspendLayout();
             this.ts.SuspendLayout();
             this.ms.SuspendLayout();
@@ -69,10 +67,6 @@
             // 
             this.container.Panel1.Controls.Add(this.lbTemplateElements);
             this.container.Panel1.Controls.Add(this.ts);
-            // 
-            // container.Panel2
-            // 
-            this.container.Panel2.Controls.Add(this.pContainer);
             this.container.Size = new System.Drawing.Size(749, 302);
             this.container.SplitterDistance = 249;
             this.container.TabIndex = 0;
@@ -243,14 +237,6 @@
             this.ofd.FileName = "ofd";
             this.ofd.Title = "Шаблоны";
             // 
-            // pContainer
-            // 
-            this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pContainer.Location = new System.Drawing.Point(0, 0);
-            this.pContainer.Name = "pContainer";
-            this.pContainer.Size = new System.Drawing.Size(496, 302);
-            this.pContainer.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,9 +244,9 @@
             this.ClientSize = new System.Drawing.Size(749, 326);
             this.Controls.Add(this.container);
             this.Controls.Add(this.ms);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.ms;
+            this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuarkPoint";
@@ -268,7 +254,6 @@
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.container.Panel1.ResumeLayout(false);
             this.container.Panel1.PerformLayout();
-            this.container.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.container)).EndInit();
             this.container.ResumeLayout(false);
             this.ts.ResumeLayout(false);
@@ -302,7 +287,6 @@
         public System.Windows.Forms.SplitContainer container;
         public System.Windows.Forms.ToolStrip ts;
         public System.Windows.Forms.OpenFileDialog ofd;
-        public System.Windows.Forms.Panel pContainer;
     }
 }
 
