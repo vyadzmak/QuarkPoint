@@ -28,33 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.tcParagraphProperties = new System.Windows.Forms.TabControl();
+            this.tpGeneral = new System.Windows.Forms.TabPage();
+            this.tpColumns = new System.Windows.Forms.TabPage();
+            this.tpHeaders = new System.Windows.Forms.TabPage();
+            this.tpFooters = new System.Windows.Forms.TabPage();
+            this.tpRows = new System.Windows.Forms.TabPage();
+            this.tpView = new System.Windows.Forms.TabPage();
+            this.tcParagraphProperties.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // tcParagraphProperties
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(153, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "TABLE";
+            this.tcParagraphProperties.Controls.Add(this.tpGeneral);
+            this.tcParagraphProperties.Controls.Add(this.tpColumns);
+            this.tcParagraphProperties.Controls.Add(this.tpHeaders);
+            this.tcParagraphProperties.Controls.Add(this.tpFooters);
+            this.tcParagraphProperties.Controls.Add(this.tpRows);
+            this.tcParagraphProperties.Controls.Add(this.tpView);
+            this.tcParagraphProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcParagraphProperties.Location = new System.Drawing.Point(0, 0);
+            this.tcParagraphProperties.Name = "tcParagraphProperties";
+            this.tcParagraphProperties.SelectedIndex = 0;
+            this.tcParagraphProperties.Size = new System.Drawing.Size(448, 335);
+            this.tcParagraphProperties.TabIndex = 1;
+            // 
+            // tpGeneral
+            // 
+            this.tpGeneral.BackColor = System.Drawing.SystemColors.Control;
+            this.tpGeneral.Location = new System.Drawing.Point(4, 22);
+            this.tpGeneral.Name = "tpGeneral";
+            this.tpGeneral.Padding = new System.Windows.Forms.Padding(3);
+            this.tpGeneral.Size = new System.Drawing.Size(440, 309);
+            this.tpGeneral.TabIndex = 0;
+            this.tpGeneral.Text = "Общие";
+            // 
+            // tpColumns
+            // 
+            this.tpColumns.BackColor = System.Drawing.SystemColors.Control;
+            this.tpColumns.Location = new System.Drawing.Point(4, 22);
+            this.tpColumns.Name = "tpColumns";
+            this.tpColumns.Padding = new System.Windows.Forms.Padding(3);
+            this.tpColumns.Size = new System.Drawing.Size(440, 309);
+            this.tpColumns.TabIndex = 1;
+            this.tpColumns.Text = "Колонки";
+            // 
+            // tpHeaders
+            // 
+            this.tpHeaders.BackColor = System.Drawing.SystemColors.Control;
+            this.tpHeaders.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tpHeaders.Location = new System.Drawing.Point(4, 22);
+            this.tpHeaders.Name = "tpHeaders";
+            this.tpHeaders.Size = new System.Drawing.Size(440, 309);
+            this.tpHeaders.TabIndex = 2;
+            this.tpHeaders.Text = "Заголовки";
+            // 
+            // tpFooters
+            // 
+            this.tpFooters.BackColor = System.Drawing.SystemColors.Control;
+            this.tpFooters.Location = new System.Drawing.Point(4, 22);
+            this.tpFooters.Name = "tpFooters";
+            this.tpFooters.Size = new System.Drawing.Size(440, 309);
+            this.tpFooters.TabIndex = 3;
+            this.tpFooters.Text = "Футеры";
+            // 
+            // tpRows
+            // 
+            this.tpRows.BackColor = System.Drawing.SystemColors.Control;
+            this.tpRows.Location = new System.Drawing.Point(4, 22);
+            this.tpRows.Name = "tpRows";
+            this.tpRows.Size = new System.Drawing.Size(440, 309);
+            this.tpRows.TabIndex = 4;
+            this.tpRows.Text = "Строки";
+            // 
+            // tpView
+            // 
+            this.tpView.BackColor = System.Drawing.SystemColors.Control;
+            this.tpView.Location = new System.Drawing.Point(4, 22);
+            this.tpView.Name = "tpView";
+            this.tpView.Size = new System.Drawing.Size(440, 309);
+            this.tpView.TabIndex = 5;
+            this.tpView.Text = "Представление";
             // 
             // TablePropertiesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tcParagraphProperties);
             this.Name = "TablePropertiesControl";
             this.Size = new System.Drawing.Size(448, 335);
+            this.tcParagraphProperties.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TabControl tcParagraphProperties;
+        private System.Windows.Forms.TabPage tpGeneral;
+        private System.Windows.Forms.TabPage tpColumns;
+        private System.Windows.Forms.TabPage tpHeaders;
+        private System.Windows.Forms.TabPage tpFooters;
+        private System.Windows.Forms.TabPage tpRows;
+        private System.Windows.Forms.TabPage tpView;
     }
 }

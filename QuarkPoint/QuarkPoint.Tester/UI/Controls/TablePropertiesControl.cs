@@ -12,9 +12,31 @@ namespace QuarkPoint.Tester.UI.Controls
 {
     public partial class TablePropertiesControl : UserControl
     {
+        #region constructor
+        /// <summary>
+        /// constructor
+        /// </summary>
         public TablePropertiesControl()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region methods
+        /// <summary>
+        /// init control
+        /// </summary>
+        public void InitControl()
+        {
+            try
+            {
+                this.Dock = DockStyle.Fill;
+            }
+            catch (Exception exception)
+            {
+
+            }
+        }
+        #endregion
     }
 }

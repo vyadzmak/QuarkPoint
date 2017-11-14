@@ -59,6 +59,7 @@
     <Compile Include="Models\TemplateModels\TemplateStyle.cs" />
     <Compile Include="Models\TemplateModels\TemplateTable.cs" />
     <Compile Include="Models\TemplateModels\TemplateTableCell.cs" />
+    <Compile Include="Models\TemplateModels\TemplateTableColumn.cs" />
     <Compile Include="Models\TemplateModels\TemplateTableFooter.cs" />
     <Compile Include="Models\TemplateModels\TemplateTableHeader.cs" />
     <Compile Include="Models\TemplateModels\TemplateTableRow.cs" />

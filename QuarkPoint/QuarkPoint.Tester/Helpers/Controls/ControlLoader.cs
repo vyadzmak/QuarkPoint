@@ -50,6 +50,7 @@ namespace QuarkPoint.Tester.Helpers.Controls
 
                     case ElementType.Таблица:
                         TablePropertiesControl tControl = new TablePropertiesControl();
+                        tControl.InitControl();
                         LoadControl(tControl);
                         break;
                 }

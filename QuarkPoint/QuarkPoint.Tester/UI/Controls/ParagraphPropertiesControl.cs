@@ -15,16 +15,32 @@ namespace QuarkPoint.Tester.UI.Controls
     {
         TemplateElement element = Program.MainForm.CurrentElement;
 
+        #region help methods
+        /// <summary>
+        /// color invertor
+        /// </summary>
+        /// <param name="ColourToInvert"></param>
+        /// <returns></returns>
         Color InvertMeAColour(Color ColourToInvert)
         {
             return Color.FromArgb((byte)~ColourToInvert.R, (byte)~ColourToInvert.G, (byte)~ColourToInvert.B);
         }
+        #endregion
 
+        #region constructor
+        /// <summary>
+        /// constructor
+        /// </summary>
         public ParagraphPropertiesControl()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region init control
+        /// <summary>
+        /// init control
+        /// </summary>
         public void InitControl()
         {
             try
@@ -75,14 +91,14 @@ namespace QuarkPoint.Tester.UI.Controls
 
             }
         }
+        #endregion
 
-
-        private void ParagraphPropertiesControl_Load(object sender, EventArgs e)
-        {
-            
-            
-        }
-
+        #region control events
+        /// <summary>
+        /// text align combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CbTextAlign_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -97,6 +113,11 @@ namespace QuarkPoint.Tester.UI.Controls
             }
         }
 
+        /// <summary>
+        /// font weight combobox events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CbFontWeight_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -130,10 +151,13 @@ namespace QuarkPoint.Tester.UI.Controls
             }
         }
 
-        #region control events
+        
 
-        #endregion
-
+        /// <summary>
+        /// text and schema rtb event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rtbText_TextChanged(object sender, EventArgs e)
         {
             try
@@ -145,6 +169,11 @@ namespace QuarkPoint.Tester.UI.Controls
             }
         }
 
+        /// <summary>
+        /// foreground color button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnForegroundColor_Click(object sender, EventArgs e)
         {
             try
@@ -164,6 +193,11 @@ namespace QuarkPoint.Tester.UI.Controls
             }
         }
 
+        /// <summary>
+        /// back color button event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBackColor_Click(object sender, EventArgs e)
         {
             try
@@ -183,5 +217,6 @@ namespace QuarkPoint.Tester.UI.Controls
             {
             }
         }
+        #endregion
     }
 }

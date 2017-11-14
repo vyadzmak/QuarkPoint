@@ -208,6 +208,25 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
+                var element = Program.MainForm.CurrentElement;
+
+                int currIndex = element.Index;
+                int prevIndex = element.Index - 1;
+
+                if (prevIndex<0) return;
+
+                var prevElement = Program.MainForm.CurrentTemplate.Elements.FirstOrDefault(x => x.Index == prevIndex);
+                prevElement.Index = currIndex;
+                element.Index = prevIndex;
+
+
+                Program.MainForm.CurrentTemplate.Elements = Program.MainForm.CurrentTemplate.Elements.OrderBy(x => x.Index).ToList();
+
+                GuiListHelper.LoadElements(false);
+
+                Program.MainForm.lbTemplateElements.SelectedIndex = element.Index;
+
+
 
             }
             catch (Exception exception)
@@ -227,7 +246,22 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
+                var element = Program.MainForm.CurrentElement;
 
+                int currIndex = element.Index;
+                int nextIndex = element.Index + 1;
+
+                if (nextIndex >= Program.MainForm.CurrentTemplate.Elements.Count) return;
+
+                var prevElement = Program.MainForm.CurrentTemplate.Elements.FirstOrDefault(x => x.Index == nextIndex);
+                prevElement.Index = currIndex;
+                element.Index = nextIndex;
+
+
+                Program.MainForm.CurrentTemplate.Elements = Program.MainForm.CurrentTemplate.Elements.OrderBy(x => x.Index).ToList();
+
+                GuiListHelper.LoadElements(false);
+                Program.MainForm.lbTemplateElements.SelectedIndex = element.Index;
             }
             catch (Exception exception)
             {
@@ -245,7 +279,23 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
-                
+                var result = MessageBox.Show("Вы действительно хотите удалить элемент?", "Удаление",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    int selectedIndex = Program.MainForm.lbTemplateElements.SelectedIndex;
+
+                    Program.MainForm.CurrentTemplate.Elements.Remove(Program.MainForm.CurrentElement);
+                    Program.MainForm.lbTemplateElements.Items.Remove(Program.MainForm.lbTemplateElements.Items[selectedIndex]);
+
+                    for (int i = 0; i < Program.MainForm.CurrentTemplate.Elements.Count; i++)
+                    {
+                        Program.MainForm.CurrentTemplate.Elements[i].Index = i;
+                    }
+
+                    GuiListHelper.LoadElements();
+                }
             }
             catch (Exception exception)
             {

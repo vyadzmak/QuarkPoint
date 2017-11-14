@@ -30,9 +30,15 @@
         {
             this.tcParagraphProperties = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rtbText = new System.Windows.Forms.RichTextBox();
             this.txtElementName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.tpStyles = new System.Windows.Forms.TabPage();
+            this.lblBackColor = new System.Windows.Forms.Label();
+            this.btnBackColor = new System.Windows.Forms.Button();
+            this.lblForegroundColor = new System.Windows.Forms.Label();
+            this.btnForegroundColor = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.nFontSize = new System.Windows.Forms.NumericUpDown();
             this.cbTextAlign = new System.Windows.Forms.ComboBox();
@@ -42,12 +48,6 @@
             this.cbFont = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cd = new System.Windows.Forms.ColorDialog();
-            this.rtbText = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnForegroundColor = new System.Windows.Forms.Button();
-            this.lblForegroundColor = new System.Windows.Forms.Label();
-            this.lblBackColor = new System.Windows.Forms.Label();
-            this.btnBackColor = new System.Windows.Forms.Button();
             this.tcParagraphProperties.SuspendLayout();
             this.tpGeneral.SuspendLayout();
             this.tpStyles.SuspendLayout();
@@ -78,6 +78,28 @@
             this.tpGeneral.Size = new System.Drawing.Size(516, 342);
             this.tpGeneral.TabIndex = 0;
             this.tpGeneral.Text = "Общие";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Текст и схема";
+            // 
+            // rtbText
+            // 
+            this.rtbText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rtbText.Location = new System.Drawing.Point(11, 79);
+            this.rtbText.Name = "rtbText";
+            this.rtbText.Size = new System.Drawing.Size(499, 257);
+            this.rtbText.TabIndex = 2;
+            this.rtbText.Text = "";
+            this.rtbText.TextChanged += new System.EventHandler(this.rtbText_TextChanged);
             // 
             // txtElementName
             // 
@@ -119,6 +141,42 @@
             this.tpStyles.Size = new System.Drawing.Size(516, 342);
             this.tpStyles.TabIndex = 1;
             this.tpStyles.Text = "Стиль";
+            // 
+            // lblBackColor
+            // 
+            this.lblBackColor.AutoSize = true;
+            this.lblBackColor.Location = new System.Drawing.Point(221, 163);
+            this.lblBackColor.Name = "lblBackColor";
+            this.lblBackColor.Size = new System.Drawing.Size(61, 13);
+            this.lblBackColor.TabIndex = 11;
+            this.lblBackColor.Text = "Цвет фона";
+            // 
+            // btnBackColor
+            // 
+            this.btnBackColor.Location = new System.Drawing.Point(222, 179);
+            this.btnBackColor.Name = "btnBackColor";
+            this.btnBackColor.Size = new System.Drawing.Size(60, 23);
+            this.btnBackColor.TabIndex = 10;
+            this.btnBackColor.UseVisualStyleBackColor = true;
+            this.btnBackColor.Click += new System.EventHandler(this.btnBackColor_Click);
+            // 
+            // lblForegroundColor
+            // 
+            this.lblForegroundColor.AutoSize = true;
+            this.lblForegroundColor.Location = new System.Drawing.Point(141, 163);
+            this.lblForegroundColor.Name = "lblForegroundColor";
+            this.lblForegroundColor.Size = new System.Drawing.Size(74, 13);
+            this.lblForegroundColor.TabIndex = 9;
+            this.lblForegroundColor.Text = "Цвет шрифта";
+            // 
+            // btnForegroundColor
+            // 
+            this.btnForegroundColor.Location = new System.Drawing.Point(144, 179);
+            this.btnForegroundColor.Name = "btnForegroundColor";
+            this.btnForegroundColor.Size = new System.Drawing.Size(60, 23);
+            this.btnForegroundColor.TabIndex = 8;
+            this.btnForegroundColor.UseVisualStyleBackColor = true;
+            this.btnForegroundColor.Click += new System.EventHandler(this.btnForegroundColor_Click);
             // 
             // label2
             // 
@@ -205,64 +263,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Шрифт";
             // 
-            // rtbText
-            // 
-            this.rtbText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rtbText.Location = new System.Drawing.Point(11, 79);
-            this.rtbText.Name = "rtbText";
-            this.rtbText.Size = new System.Drawing.Size(499, 257);
-            this.rtbText.TabIndex = 2;
-            this.rtbText.Text = "";
-            this.rtbText.TextChanged += new System.EventHandler(this.rtbText_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 63);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Текст и схема";
-            // 
-            // btnForegroundColor
-            // 
-            this.btnForegroundColor.Location = new System.Drawing.Point(144, 179);
-            this.btnForegroundColor.Name = "btnForegroundColor";
-            this.btnForegroundColor.Size = new System.Drawing.Size(60, 23);
-            this.btnForegroundColor.TabIndex = 8;
-            this.btnForegroundColor.UseVisualStyleBackColor = true;
-            this.btnForegroundColor.Click += new System.EventHandler(this.btnForegroundColor_Click);
-            // 
-            // lblForegroundColor
-            // 
-            this.lblForegroundColor.AutoSize = true;
-            this.lblForegroundColor.Location = new System.Drawing.Point(141, 163);
-            this.lblForegroundColor.Name = "lblForegroundColor";
-            this.lblForegroundColor.Size = new System.Drawing.Size(74, 13);
-            this.lblForegroundColor.TabIndex = 9;
-            this.lblForegroundColor.Text = "Цвет шрифта";
-            // 
-            // lblBackColor
-            // 
-            this.lblBackColor.AutoSize = true;
-            this.lblBackColor.Location = new System.Drawing.Point(221, 163);
-            this.lblBackColor.Name = "lblBackColor";
-            this.lblBackColor.Size = new System.Drawing.Size(61, 13);
-            this.lblBackColor.TabIndex = 11;
-            this.lblBackColor.Text = "Цвет фона";
-            // 
-            // btnBackColor
-            // 
-            this.btnBackColor.Location = new System.Drawing.Point(222, 179);
-            this.btnBackColor.Name = "btnBackColor";
-            this.btnBackColor.Size = new System.Drawing.Size(60, 23);
-            this.btnBackColor.TabIndex = 10;
-            this.btnBackColor.UseVisualStyleBackColor = true;
-            this.btnBackColor.Click += new System.EventHandler(this.btnBackColor_Click);
-            // 
             // ParagraphPropertiesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,7 +270,6 @@
             this.Controls.Add(this.tcParagraphProperties);
             this.Name = "ParagraphPropertiesControl";
             this.Size = new System.Drawing.Size(524, 368);
-            this.Load += new System.EventHandler(this.ParagraphPropertiesControl_Load);
             this.tcParagraphProperties.ResumeLayout(false);
             this.tpGeneral.ResumeLayout(false);
             this.tpGeneral.PerformLayout();

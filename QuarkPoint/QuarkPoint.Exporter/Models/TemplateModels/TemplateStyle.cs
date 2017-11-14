@@ -39,6 +39,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
                 ForegroundColor = "#000000";
                 BackgroundColor = "#ffffff";
                 TextAlign = TextAlign.Left;
+                UnderLine = false;
 
             }
             catch (Exception e)
@@ -88,6 +89,9 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         [JsonProperty("font_size")]
 
         public int FontSize { get; set; }
+
+        [JsonProperty("underline")]
+        public bool UnderLine { get; set; }
         #endregion
     }
 }

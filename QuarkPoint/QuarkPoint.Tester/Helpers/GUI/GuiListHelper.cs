@@ -66,7 +66,7 @@ namespace QuarkPoint.Tester.Helpers.GUI
             }
         }
 
-        public static void LoadElements()
+        public static void LoadElements(bool selectElement = true)
         {
             try
             {
@@ -83,7 +83,8 @@ namespace QuarkPoint.Tester.Helpers.GUI
                     int index = list.Items.Count - 1;
                     element.Index = index;
                 }
-                SelectFirstItem();
+                if (selectElement)
+                    SelectFirstItem();
             }
             catch (Exception e)
             {
