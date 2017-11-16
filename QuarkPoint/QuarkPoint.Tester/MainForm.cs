@@ -27,8 +27,14 @@ namespace QuarkPoint.Tester
         /// </summary>
         public TemplateElement CurrentElement = null;
 
-        
-        
+        /// <summary>
+        /// current project id
+        /// </summary>
+        public int CurrentProjectId = 1589;
+        /// <summary>
+        /// current test project
+        /// </summary>
+        public object CurrentProject = null;
         #endregion
         #region constructor
 

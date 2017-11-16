@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,11 +38,35 @@ namespace QuarkPoint.Tester
             }
             // ловим все не обработанные исключения
             //Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(ApplicationException);
-            
+            Application.ApplicationExit += new EventHandler(OnApplicationExit);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             MainForm = new MainForm();
             Application.Run(MainForm);
+        }
+
+        /// <summary>
+        /// terminate application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void OnApplicationExit(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                string tempFolder = MainForm.settings.TempFolder;
+
+                string[] files = Directory.GetFiles(tempFolder);
+
+                for (int i = 0; i < files.Length; i++)
+                {
+                        File.Delete(files[i]); 
+                    
+                }
+
+            }
+            catch { }
         }
     }
 }

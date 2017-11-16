@@ -4,10 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using QuarkPoint.Exporter.Helpers;
 using QuarkPoint.Exporter.Models.TemplateModels;
 using QuarkPoint.Tester.Helpers.Controls;
+using QuarkPoint.Tester.Helpers.ReuestHelpers;
+using QuarkPoint.Tester.Helpers.TestExports;
 using QuarkPoint.Tester.UI;
 
 namespace QuarkPoint.Tester.Helpers.GUI
@@ -87,7 +91,17 @@ namespace QuarkPoint.Tester.Helpers.GUI
                             GuiEventListeners.UnlockControlsWithNewTemplate();
                             GuiListHelper.LoadElements();
                             GuiEventListeners.UpdateFormTitle();
+                            string projectString =RequestHelper.GetRequest();
+
+                            JavaScriptSerializer s = new JavaScriptSerializer();
+                            dynamic t1 = s.DeserializeObject(projectString);
+
+                            dynamic obj = JsonConvert.DeserializeObject(t1.ToString());
+                            string ss = obj.ProjectContent.ToString();
+
                             
+                            dynamic r_obj = JsonConvert.DeserializeObject(obj.ProjectContent.ToString());
+                            Program.MainForm.CurrentProject = r_obj;
                         }
                     }
                 }
@@ -110,7 +124,7 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
-
+                CurrentProjectExporter.ExportCurrentProject();
             }
             catch (Exception exception)
             {
@@ -128,7 +142,7 @@ namespace QuarkPoint.Tester.Helpers.GUI
         {
             try
             {
-
+               CurrentElementExporter.ExportCurrentElement();
             }
             catch (Exception exception)
             {

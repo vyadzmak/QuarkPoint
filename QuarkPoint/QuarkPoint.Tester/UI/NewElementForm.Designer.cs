@@ -81,6 +81,7 @@
             this.cbElementType.Name = "cbElementType";
             this.cbElementType.Size = new System.Drawing.Size(396, 21);
             this.cbElementType.TabIndex = 8;
+            this.cbElementType.SelectedIndexChanged += new System.EventHandler(this.cbElementType_SelectedIndexChanged);
             // 
             // lbElementType
             // 

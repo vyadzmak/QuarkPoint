@@ -7,6 +7,13 @@ using Newtonsoft.Json;
 
 namespace QuarkPoint.Exporter.Models.TemplateModels
 {
+
+    /// <summary>
+    /// column type
+    /// </summary>
+    public enum ColumnType { Text =0, Variable =1, Binding=2}
+    
+
     public class TemplateTableColumn
     {
         #region constrcutor
@@ -43,6 +50,12 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         /// </summary>
         [JsonProperty("title")]
         public string Title { get; set; }
+
+        /// <summary>
+        /// column type
+        /// </summary>
+        [JsonProperty("column_type")]
+        public ColumnType ColumnType { get; set; }
         #endregion
 
     }

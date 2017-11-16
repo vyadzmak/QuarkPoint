@@ -10,7 +10,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
     /// <summary>
     /// element type
     /// </summary>
-    public enum ElementType { Текст =0, Таблица =1, Список =2}
+    public enum ElementType { Текст =0, Таблица =1, Список =2,Перенос =3}
 
     /// <summary>
     /// template element
@@ -69,6 +69,9 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         [JsonProperty("paragraph")]
 
         public TemplateParagraph Paragraph { get; set; }
+
+        [JsonProperty("new_line")]
+        public TemplateNewLine NewLine { get; set; }
         #endregion
     }
 }

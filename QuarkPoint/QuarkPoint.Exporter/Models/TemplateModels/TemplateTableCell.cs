@@ -47,6 +47,18 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         /// </summary>
         [JsonProperty("title")]
         public string Title { get; set; }
+
+        /// <summary>
+        /// value
+        /// </summary>
+        [JsonProperty("value")]
+        public string Value { get; set; }
+
+        /// <summary>
+        /// type
+        /// </summary>
+        [JsonProperty("column_type")]
+        public ColumnType ColumnType { get; set; }
         #endregion
     }
 }

@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tcParagraphProperties = new System.Windows.Forms.TabControl();
+            this.tcTableProperties = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
             this.tpColumns = new System.Windows.Forms.TabPage();
             this.tpHeaders = new System.Windows.Forms.TabPage();
             this.tpFooters = new System.Windows.Forms.TabPage();
             this.tpRows = new System.Windows.Forms.TabPage();
             this.tpView = new System.Windows.Forms.TabPage();
-            this.tcParagraphProperties.SuspendLayout();
+            this.tcTableProperties.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tcParagraphProperties
+            // tcTableProperties
             // 
-            this.tcParagraphProperties.Controls.Add(this.tpGeneral);
-            this.tcParagraphProperties.Controls.Add(this.tpColumns);
-            this.tcParagraphProperties.Controls.Add(this.tpHeaders);
-            this.tcParagraphProperties.Controls.Add(this.tpFooters);
-            this.tcParagraphProperties.Controls.Add(this.tpRows);
-            this.tcParagraphProperties.Controls.Add(this.tpView);
-            this.tcParagraphProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcParagraphProperties.Location = new System.Drawing.Point(0, 0);
-            this.tcParagraphProperties.Name = "tcParagraphProperties";
-            this.tcParagraphProperties.SelectedIndex = 0;
-            this.tcParagraphProperties.Size = new System.Drawing.Size(448, 335);
-            this.tcParagraphProperties.TabIndex = 1;
+            this.tcTableProperties.Controls.Add(this.tpGeneral);
+            this.tcTableProperties.Controls.Add(this.tpColumns);
+            this.tcTableProperties.Controls.Add(this.tpHeaders);
+            this.tcTableProperties.Controls.Add(this.tpFooters);
+            this.tcTableProperties.Controls.Add(this.tpRows);
+            this.tcTableProperties.Controls.Add(this.tpView);
+            this.tcTableProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcTableProperties.Location = new System.Drawing.Point(0, 0);
+            this.tcTableProperties.Name = "tcTableProperties";
+            this.tcTableProperties.SelectedIndex = 0;
+            this.tcTableProperties.Size = new System.Drawing.Size(448, 335);
+            this.tcTableProperties.TabIndex = 1;
             // 
             // tpGeneral
             // 
@@ -114,17 +114,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tcParagraphProperties);
+            this.Controls.Add(this.tcTableProperties);
             this.Name = "TablePropertiesControl";
             this.Size = new System.Drawing.Size(448, 335);
-            this.tcParagraphProperties.ResumeLayout(false);
+            this.tcTableProperties.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public System.Windows.Forms.TabControl tcParagraphProperties;
+        public System.Windows.Forms.TabControl tcTableProperties;
         private System.Windows.Forms.TabPage tpGeneral;
         private System.Windows.Forms.TabPage tpColumns;
         private System.Windows.Forms.TabPage tpHeaders;

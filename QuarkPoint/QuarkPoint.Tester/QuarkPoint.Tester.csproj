@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +62,10 @@
     <Compile Include="Helpers\GUI\GuiEventListeners.cs" />
     <Compile Include="Helpers\GUI\GuiHelper.cs" />
     <Compile Include="Helpers\GUI\GuiListHelper.cs" />
+    <Compile Include="Helpers\IO\FileNameGenerator.cs" />
+    <Compile Include="Helpers\ReuestHelpers\RequestHelper.cs" />
+    <Compile Include="Helpers\TestExports\CurrentElementExporter.cs" />
+    <Compile Include="Helpers\TestExports\CurrentProjectExporter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +80,18 @@
     </Compile>
     <Compile Include="UI\Controls\ParagraphPropertiesControl.Designer.cs">
       <DependentUpon>ParagraphPropertiesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\TableDataByArrayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\TableDataByArrayControl.Designer.cs">
+      <DependentUpon>TableDataByArrayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\TableDataByVariablesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\TableDataByVariablesControl.Designer.cs">
+      <DependentUpon>TableDataByVariablesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\TablePropertiesControl.cs">
       <SubType>UserControl</SubType>
@@ -100,6 +117,12 @@
     <Compile Include="UI\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\TableSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TableSettingsForm.Designer.cs">
+      <DependentUpon>TableSettingsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +141,12 @@
     <EmbeddedResource Include="UI\Controls\ParagraphPropertiesControl.resx">
       <DependentUpon>ParagraphPropertiesControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\TableDataByArrayControl.resx">
+      <DependentUpon>TableDataByArrayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\TableDataByVariablesControl.resx">
+      <DependentUpon>TableDataByVariablesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\TablePropertiesControl.resx">
       <DependentUpon>TablePropertiesControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TableSettingsForm.resx">
+      <DependentUpon>TableSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>

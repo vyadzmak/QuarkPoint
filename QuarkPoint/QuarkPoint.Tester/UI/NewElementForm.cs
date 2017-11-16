@@ -79,11 +79,18 @@ namespace QuarkPoint.Tester.UI
                             element.Table = new TemplateTable();
                             break;
 
+                        case ElementType.Перенос:
+                            element.ElementType = ElementType.Перенос;
+                            element.NewLine = new TemplateNewLine();
+                            break;
+
                     }
                     template.Changed = true;
+                    this.Close();
+
                     template.Elements.Add(element);
                     GuiListHelper.AddNewElement(element);
-                    this.Close();
+                    
                 }
                 else
                 {
@@ -93,6 +100,27 @@ namespace QuarkPoint.Tester.UI
             }
             catch (Exception exception)
             {
+            }
+        }
+
+        private void cbElementType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbElementType.Text == "Перенос")
+                {
+                    txtElementName.Text = "Перенос";
+                    txtElementName.Enabled = false;
+                }
+                else
+                {
+                    txtElementName.Enabled = true;
+                }
+                
+            }
+            catch (Exception exception)
+            {
+
             }
         }
     }

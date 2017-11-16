@@ -24,6 +24,19 @@ namespace QuarkPoint.Tester.UI.Controls
 
         #region methods
         /// <summary>
+        /// init components by table type
+        /// </summary>
+        private void InitComponentsByType()
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+            }
+        }
+        /// <summary>
         /// init control
         /// </summary>
         public void InitControl()
@@ -31,6 +44,19 @@ namespace QuarkPoint.Tester.UI.Controls
             try
             {
                 this.Dock = DockStyle.Fill;
+                var table = Program.MainForm.CurrentElement.Table;
+                if (!table.IsInit)
+                {
+                    TableSettingsForm form = new TableSettingsForm();
+                    form.ShowDialog();
+                    this.tcTableProperties.Hide();
+                    
+                }
+                else
+                {
+                    
+                }
+
             }
             catch (Exception exception)
             {

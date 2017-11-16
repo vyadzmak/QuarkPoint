@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Newtonsoft.Json;
 
 namespace QuarkPoint.Exporter.Models.TemplateModels
@@ -41,6 +42,34 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
                 TextAlign = TextAlign.Left;
                 UnderLine = false;
 
+            }
+            catch (Exception e)
+            {
+            }
+        }
+
+        /// <summary>
+        /// constructor with params
+        /// </summary>
+        /// <param name="fontName"></param>
+        /// <param name="fontWeight"></param>
+        /// <param name="textAlign"></param>
+        /// <param name="fontSize"></param>
+        /// <param name="backgroundColor"></param>
+        /// <param name="foregroundColor"></param>
+        /// <param name="underLine"></param>
+        /// <param name=""></param>
+        public TemplateStyle(FontName fontName, FontWeight fontWeight, TextAlign textAlign, int fontSize,string backgroundColor, string foregroundColor,bool underLine)
+        {
+            try
+            {
+                this.FontName = fontName;
+                this.FontWeight = fontWeight;
+                this.TextAlign = textAlign;
+                this.FontSize = fontSize;
+                this.ForegroundColor = foregroundColor;
+                this.BackgroundColor = backgroundColor;
+                this.UnderLine = underLine;
             }
             catch (Exception e)
             {

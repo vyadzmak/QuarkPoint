@@ -21,6 +21,7 @@ namespace QuarkPoint.Tester.Helpers.Controls
             {
                 var container = Program.MainForm.container.Panel2;
                 container.Controls.Clear();
+                if (control!=null)
                 container.Controls.Add(control);
                 
             }
@@ -52,6 +53,10 @@ namespace QuarkPoint.Tester.Helpers.Controls
                         TablePropertiesControl tControl = new TablePropertiesControl();
                         tControl.InitControl();
                         LoadControl(tControl);
+                        break;
+                    
+                        case ElementType.Перенос:
+                        LoadControl(null);
                         break;
                 }
 
