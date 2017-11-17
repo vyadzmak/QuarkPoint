@@ -59,6 +59,7 @@
     <Compile Include="Helpers\DataInitializer.cs" />
     <Compile Include="Helpers\GenerateDocumentHelper.cs" />
     <Compile Include="Helpers\GenerateNewLineHelper.cs" />
+    <Compile Include="Helpers\GenerateTableHelper.cs" />
     <Compile Include="Helpers\GenerateParagraphHelper.cs" />
     <Compile Include="Helpers\GenerateProcessor.cs" />
     <Compile Include="Helpers\JHelper.cs" />

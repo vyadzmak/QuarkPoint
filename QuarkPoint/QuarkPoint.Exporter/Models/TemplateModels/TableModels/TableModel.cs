@@ -26,6 +26,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
                 UseHeaders = false;
                 UseFooters = false;
                 Rows = new List<RowModel>();
+                Columns = new List<ColumnModel>();
                 IsInit = false;
             }
             catch (Exception e)
@@ -109,6 +110,27 @@ namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
         /// </summary>
         [JsonProperty("columns")]
         public List<ColumnModel> Columns { get; set; }
+        #endregion
+
+        #region methods
+        /// <summary>
+        /// init columns
+        /// </summary>
+        public void InitColumns()
+        {
+            try
+            {
+                for (int i = 0; i < ColumnsCount; i++)
+                {
+                    string name = "column " + i;
+
+                    Columns.Add(new ColumnModel() {Index = i,Name = name});
+                }
+            }
+            catch (Exception e)
+            {
+            }
+        }
         #endregion
     }
 }

@@ -37,6 +37,23 @@ namespace QuarkPoint.Exporter.Helpers
                             break;
 
                         case ElementType.Таблица:
+
+                            for (int i = 0; i < element.Table.Rows.Count; i++)
+                            {
+                                var row = element.Table.Rows[i];
+
+                                for (int j = 0; j < row.Cells.Count; j++)
+                                {
+                                    var cell = row.Cells[j];
+
+                                    var _el = ParseHelper.GetToVars(cell.Value);
+                                    cell.Value =
+                                        DataInitializer.InitData(currentProject, _el, cell.Value);
+                                }
+                            }
+
+
+                            GenerateTableHelper.GenerateTable(body,element);
                             break;
 
                         case ElementType.Перенос:
@@ -75,6 +92,22 @@ namespace QuarkPoint.Exporter.Helpers
                         break;
 
                     case ElementType.Таблица:
+                        for (int i = 0; i < element.Table.Rows.Count; i++)
+                        {
+                            var row = element.Table.Rows[i];
+
+                            for (int j = 0; j < row.Cells.Count; j++)
+                            {
+                                var cell = row.Cells[j];
+
+                                var _el = ParseHelper.GetToVars(cell.Value);
+                                cell.Value =
+                                    DataInitializer.InitData(currentProject, _el, cell.Value);
+                            }
+                        }
+
+
+                        GenerateTableHelper.GenerateTable(body, element);
                         break;
 
                     case ElementType.Перенос:

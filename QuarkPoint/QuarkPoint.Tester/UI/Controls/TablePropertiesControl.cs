@@ -1,37 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuarkPoint.Exporter.Models.TemplateModels.TableModels;
+using QuarkPoint.Tester.Helpers.DataLoaders;
 
 namespace QuarkPoint.Tester.UI.Controls
 {
     public partial class TablePropertiesControl : UserControl
     {
         #region constrcutor
+
         /// <summary>
-        /// constructor
+        ///     constructor
         /// </summary>
         public TablePropertiesControl()
         {
             InitializeComponent();
         }
+
         #endregion
 
         #region init controls
+
         /// <summary>
-        /// init controls
+        ///     init controls
         /// </summary>
         public void InitControl()
         {
             try
             {
-                this.Dock = DockStyle.Fill;
+                Dock = DockStyle.Fill;
                 var table = Program.MainForm.CurrentElement.Table;
                 txtTableName.DataBindings.Add("Text",
                     Program.MainForm.CurrentElement,
@@ -41,9 +38,9 @@ namespace QuarkPoint.Tester.UI.Controls
 
                 if (!table.IsInit)
                 {
-                   this.tcTableProperties.TabPages.Remove(this.tpHeaders);
-                   this.tcTableProperties.TabPages.Remove(this.tpFooters);
-                   this.tcTableProperties.TabPages.Remove(this.tpBody);
+                    tcTableProperties.TabPages.Remove(tpHeaders);
+                    tcTableProperties.TabPages.Remove(tpFooters);
+                    tcTableProperties.TabPages.Remove(tpBody);
                     rbManual.Checked = true;
 
                     chbUseFooters.Checked = Program.MainForm.CurrentElement.Table.UseFooters;
@@ -54,11 +51,13 @@ namespace QuarkPoint.Tester.UI.Controls
                     gbConfirm.Enabled = false;
                     gbDetails.Enabled = false;
                     gbSelectType.Enabled = false;
+                    chbUseHeaders.Enabled = false;
+                    chbUseFooters.Enabled = false;
 
                     switch (table.DataType)
                     {
-                            case DataType.Manual:
-                                rbManual.Checked = true;
+                        case DataType.Manual:
+                            rbManual.Checked = true;
                             break;
 
                         case DataType.AutoByDataWithoutFormatting:
@@ -70,19 +69,77 @@ namespace QuarkPoint.Tester.UI.Controls
                             break;
                     }
 
-                    chbUseFooters.Checked= Program.MainForm.CurrentElement.Table.UseFooters;
-                    chbUseHeaders.Checked= Program.MainForm.CurrentElement.Table.UseHeaders;
+                    if (!table.UseHeaders)
+                        tcTableProperties.TabPages.Remove(tpHeaders);
+
+                    if (!table.UseFooters)
+                        tcTableProperties.TabPages.Remove(tpFooters);
+
+
+                    chbUseFooters.Checked = Program.MainForm.CurrentElement.Table.UseFooters;
+                    chbUseHeaders.Checked = Program.MainForm.CurrentElement.Table.UseHeaders;
                 }
             }
             catch (Exception e)
             {
             }
         }
+
+
+        /// <summary>
+        ///     init controls
+        /// </summary>
+        public void FirstInitControl()
+        {
+            try
+            {
+                Dock = DockStyle.Fill;
+                var table = Program.MainForm.CurrentElement.Table;
+
+                if (table.UseHeaders)
+                    tcTableProperties.TabPages.Add(tpHeaders);
+
+                if (table.UseFooters)
+                tcTableProperties.TabPages.Add(tpFooters);
+
+                tcTableProperties.TabPages.Add(tpBody);
+
+                gbConfirm.Enabled = false;
+                gbDetails.Enabled = false;
+                gbSelectType.Enabled = false;
+
+                chbUseHeaders.Enabled = false;
+                chbUseFooters.Enabled = false;
+
+                switch (table.DataType)
+                {
+                    case DataType.Manual:
+                        rbManual.Checked = true;
+                        break;
+
+                    case DataType.AutoByDataWithoutFormatting:
+                        rbAutoWithoutFormat.Checked = true;
+                        break;
+
+                    case DataType.AutoByDataWithFormatting:
+                        rbAutoWithFormat.Checked = true;
+                        break;
+                }
+
+                chbUseFooters.Checked = Program.MainForm.CurrentElement.Table.UseFooters;
+                chbUseHeaders.Checked = Program.MainForm.CurrentElement.Table.UseHeaders;
+            }
+            catch (Exception e)
+            {
+            }
+        }
+
         #endregion
 
         #region events
+
         /// <summary>
-        /// load controls
+        ///     load controls
         /// </summary>
         private void LoadControl(Control control)
         {
@@ -95,8 +152,9 @@ namespace QuarkPoint.Tester.UI.Controls
             {
             }
         }
+
         /// <summary>
-        /// rb manual
+        ///     rb manual
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -105,7 +163,7 @@ namespace QuarkPoint.Tester.UI.Controls
             try
             {
                 Program.MainForm.CurrentElement.Table.DataType = DataType.Manual;
-                ManualEnterTablePropertiesControl control = new ManualEnterTablePropertiesControl();
+                var control = new ManualEnterTablePropertiesControl();
                 control.InitControl();
                 LoadControl(control);
             }
@@ -115,7 +173,7 @@ namespace QuarkPoint.Tester.UI.Controls
         }
 
         /// <summary>
-        /// rb auto without format
+        ///     rb auto without format
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -124,18 +182,17 @@ namespace QuarkPoint.Tester.UI.Controls
             try
             {
                 Program.MainForm.CurrentElement.Table.DataType = DataType.AutoByDataWithoutFormatting;
-                AutoBindingWithoutFormattingTableControl control = new AutoBindingWithoutFormattingTableControl();
+                var control = new AutoBindingWithoutFormattingTableControl();
                 control.InitControl();
                 LoadControl(control);
             }
             catch (Exception exception)
             {
-                
             }
         }
 
         /// <summary>
-        /// rb auto with format
+        ///     rb auto with format
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -144,18 +201,17 @@ namespace QuarkPoint.Tester.UI.Controls
             try
             {
                 Program.MainForm.CurrentElement.Table.DataType = DataType.AutoByDataWithFormatting;
-                AutoBindingWithFormattingTableControl control = new AutoBindingWithFormattingTableControl();
+                var control = new AutoBindingWithFormattingTableControl();
                 control.InitControl();
                 LoadControl(control);
             }
             catch (Exception exception)
             {
-
             }
         }
 
         /// <summary>
-        /// check box use headers events
+        ///     check box use headers events
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -164,16 +220,14 @@ namespace QuarkPoint.Tester.UI.Controls
             try
             {
                 Program.MainForm.CurrentElement.Table.UseHeaders = chbUseHeaders.Checked;
-
             }
             catch (Exception exception)
             {
-               
             }
         }
 
         /// <summary>
-        /// check box use footers events
+        ///     check box use footers events
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -187,6 +241,78 @@ namespace QuarkPoint.Tester.UI.Controls
             {
             }
         }
+
+        /// <summary>
+        ///     init table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var table = Program.MainForm.CurrentElement.Table;
+                switch (table.DataType)
+                {
+                    case DataType.Manual:
+                        table.InitColumns();
+                        break;
+
+                    case DataType.AutoByDataWithoutFormatting:
+                        break;
+
+                    case DataType.AutoByDataWithFormatting:
+                        break;
+                }
+                FirstInitControl();
+                table.IsInit = true;
+            }
+            catch (Exception exception)
+            {
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tcTableProperties_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TabPage page = tcTableProperties.SelectedTab;
+                switch (page.Name)
+                {
+                    case "tpBody":
+                        LoadTableContent.LoadDataToBody(dgvTableContent);
+                        break;
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// init table data from grid
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvTableContent_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                LoadTableContent.LoadTableContentFromGridBody(dgvTableContent);
+            }
+            catch (Exception exception)
+            {
+
+            }
+        }
+
         #endregion
 
 
