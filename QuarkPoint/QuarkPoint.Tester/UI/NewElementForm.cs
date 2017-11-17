@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuarkPoint.Exporter.Models.TemplateModels;
+using QuarkPoint.Exporter.Models.TemplateModels.TableModels;
 using QuarkPoint.Tester.Helpers.GUI;
 
 namespace QuarkPoint.Tester.UI
@@ -76,7 +77,8 @@ namespace QuarkPoint.Tester.UI
 
                         case ElementType.Таблица:
                             element.ElementType = ElementType.Таблица;
-                            element.Table = new TemplateTable();
+                            element.Table = new TableModel();
+
                             break;
 
                         case ElementType.Перенос:

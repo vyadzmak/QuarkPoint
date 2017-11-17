@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace QuarkPoint.Exporter.Models.TemplateModels
+namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
 {
-    public class TemplateTableFooter
+    public class RowModel
     {
-        #region constrcutor
+        #region constructor
         /// <summary>
-        /// constructor
+        /// row model
         /// </summary>
-        public TemplateTableFooter()
+        public RowModel()
         {
             try
             {
-
+                Cells = new List<CellModel>();
             }
             catch (Exception e)
             {
@@ -30,19 +30,15 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         /// index
         /// </summary>
         [JsonProperty("index")]
-        public int Index { get; set; }
 
+        public int Index { get; set; }
         /// <summary>
         /// cells
         /// </summary>
         [JsonProperty("cells")]
-        public List<TemplateTableCell> Cells { get; set; }
 
-        /// <summary>
-        /// merges
-        /// </summary>
-        [JsonProperty("merges")]
-        public List<TemplateMerge> Merges { get; set; }
+        public List<CellModel> Cells { get; set; }
+
         #endregion
     }
 }

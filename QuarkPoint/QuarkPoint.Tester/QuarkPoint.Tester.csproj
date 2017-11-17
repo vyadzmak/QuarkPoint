@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Controls\ControlLoader.cs" />
+    <Compile Include="Helpers\DataLoaders\TableByVariableDataLoader.cs" />
     <Compile Include="Helpers\GUI\GuiEventListeners.cs" />
     <Compile Include="Helpers\GUI\GuiHelper.cs" />
     <Compile Include="Helpers\GUI\GuiListHelper.cs" />
@@ -75,23 +76,29 @@
     <Compile Include="Models\Settings\SettingModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Controls\AutoBindingWithFormattingTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\AutoBindingWithFormattingTableControl.Designer.cs">
+      <DependentUpon>AutoBindingWithFormattingTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\AutoBindingWithoutFormattingTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\AutoBindingWithoutFormattingTableControl.Designer.cs">
+      <DependentUpon>AutoBindingWithoutFormattingTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ManualEnterTablePropertiesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ManualEnterTablePropertiesControl.Designer.cs">
+      <DependentUpon>ManualEnterTablePropertiesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\ParagraphPropertiesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\ParagraphPropertiesControl.Designer.cs">
       <DependentUpon>ParagraphPropertiesControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Controls\TableDataByArrayControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Controls\TableDataByArrayControl.Designer.cs">
-      <DependentUpon>TableDataByArrayControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Controls\TableDataByVariablesControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Controls\TableDataByVariablesControl.Designer.cs">
-      <DependentUpon>TableDataByVariablesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\TablePropertiesControl.cs">
       <SubType>UserControl</SubType>
@@ -117,12 +124,6 @@
     <Compile Include="UI\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\TableSettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\TableSettingsForm.Designer.cs">
-      <DependentUpon>TableSettingsForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,14 +139,17 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="UI\Controls\AutoBindingWithFormattingTableControl.resx">
+      <DependentUpon>AutoBindingWithFormattingTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\AutoBindingWithoutFormattingTableControl.resx">
+      <DependentUpon>AutoBindingWithoutFormattingTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ManualEnterTablePropertiesControl.resx">
+      <DependentUpon>ManualEnterTablePropertiesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\ParagraphPropertiesControl.resx">
       <DependentUpon>ParagraphPropertiesControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Controls\TableDataByArrayControl.resx">
-      <DependentUpon>TableDataByArrayControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Controls\TableDataByVariablesControl.resx">
-      <DependentUpon>TableDataByVariablesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\TablePropertiesControl.resx">
       <DependentUpon>TablePropertiesControl.cs</DependentUpon>
@@ -158,9 +162,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\TableSettingsForm.resx">
-      <DependentUpon>TableSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>

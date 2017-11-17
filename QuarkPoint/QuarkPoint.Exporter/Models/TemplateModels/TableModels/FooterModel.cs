@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuarkPoint.Exporter.Models.TemplateModels
+namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
 {
-    public class TemplateGroupColumn
+    public class FooterModel:RowModel
     {
         #region constructor
         /// <summary>
         /// constructor
         /// </summary>
-        public TemplateGroupColumn()
+        public FooterModel()
         {
             try
             {
@@ -26,14 +26,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         #endregion
 
         #region fields
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; set; }
-        /// <summary>
-        /// columns
-        /// </summary>
-        public List<TemplateTableColumn> Columns { get; set; }
+        
         #endregion
     }
 }

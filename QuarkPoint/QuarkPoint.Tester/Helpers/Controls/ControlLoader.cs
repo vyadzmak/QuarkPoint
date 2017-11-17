@@ -44,6 +44,7 @@ namespace QuarkPoint.Tester.Helpers.Controls
                 switch (element.ElementType)
                 {
                         case ElementType.Текст:
+                         
                         ParagraphPropertiesControl pControl = new ParagraphPropertiesControl();
                         pControl.InitControl();
                         LoadControl(pControl);

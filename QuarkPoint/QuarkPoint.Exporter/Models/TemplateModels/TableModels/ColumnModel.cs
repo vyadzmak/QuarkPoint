@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace QuarkPoint.Exporter.Models.TemplateModels
+namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
 {
-    public class TemplateTableHeader
+    public class ColumnModel
     {
         #region constrcutor
         /// <summary>
-        /// constructor
+        /// constrcutor
         /// </summary>
-        public TemplateTableHeader()
+        public ColumnModel()
         {
             try
             {
@@ -33,16 +33,12 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         public int Index { get; set; }
 
         /// <summary>
-        /// cells
+        /// name
         /// </summary>
-        [JsonProperty("cells")]
-        public List<TemplateTableCell> Cells { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
-        /// <summary>
-        /// merges
-        /// </summary>
-        [JsonProperty("merges")]
-        public List<TemplateMerge> Merges { get; set; }
+
         #endregion
     }
 }

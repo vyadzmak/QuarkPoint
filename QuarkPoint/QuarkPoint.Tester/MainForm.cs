@@ -6,6 +6,7 @@ using NLog.Targets.Wrappers;
 using QuarkPoint.Exporter.Models.TemplateModels;
 using QuarkPoint.Tester.Helpers.GUI;
 using QuarkPoint.Tester.Models.Settings;
+using QuarkPoint.Tester.UI.Controls;
 
 namespace QuarkPoint.Tester
 {
@@ -35,6 +36,8 @@ namespace QuarkPoint.Tester
         /// current test project
         /// </summary>
         public object CurrentProject = null;
+
+        
         #endregion
         #region constructor
 

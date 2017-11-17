@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace QuarkPoint.Exporter.Models.TemplateModels
+namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
 {
     /// <summary>
-    /// cell
+    /// cell model
     /// </summary>
-    public class TemplateTableCell
+    public class CellModel
     {
         #region constructor
         /// <summary>
         /// constructor
         /// </summary>
-        public TemplateTableCell()
+        public CellModel()
         {
             try
             {
@@ -24,29 +24,17 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
             }
             catch (Exception e)
             {
-                
             }
         }
         #endregion
 
-        #region fields
+        #region fields  
         /// <summary>
         /// index
         /// </summary>
         [JsonProperty("index")]
+
         public int Index { get; set; }
-
-        /// <summary>
-        /// name
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// title
-        /// </summary>
-        [JsonProperty("title")]
-        public string Title { get; set; }
 
         /// <summary>
         /// value
@@ -55,10 +43,10 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         public string Value { get; set; }
 
         /// <summary>
-        /// type
+        /// name
         /// </summary>
-        [JsonProperty("column_type")]
-        public ColumnType ColumnType { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
         #endregion
     }
 }

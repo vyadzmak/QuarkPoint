@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using QuarkPoint.Exporter.Models.TemplateModels.TableModels;
 
 namespace QuarkPoint.Exporter.Models.TemplateModels
 {
@@ -56,13 +57,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
 
         public ElementType ElementType { get; set; }
 
-        /// <summary>
-        /// table
-        /// </summary>
-        [JsonProperty("table")]
-
-        public TemplateTable Table { get; set; }
-
+        
         /// <summary>
         /// paragraph
         /// </summary>
@@ -70,6 +65,15 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
 
         public TemplateParagraph Paragraph { get; set; }
 
+
+        /// <summary>
+        /// table
+        /// </summary>
+        [JsonProperty("table")]
+        public TableModel Table { get; set; }
+        /// <summary>
+        /// new line
+        /// </summary>
         [JsonProperty("new_line")]
         public TemplateNewLine NewLine { get; set; }
         #endregion

@@ -66,19 +66,18 @@
     <Compile Include="Helpers\ParseHelper.cs" />
     <Compile Include="Helpers\RegExpHelper.cs" />
     <Compile Include="Models\ParseModels\VariableModel.cs" />
+    <Compile Include="Models\TemplateModels\TableModels\CellModel.cs" />
+    <Compile Include="Models\TemplateModels\TableModels\ColumnModel.cs" />
+    <Compile Include="Models\TemplateModels\TableModels\FooterModel.cs" />
+    <Compile Include="Models\TemplateModels\TableModels\HeaderModel.cs" />
+    <Compile Include="Models\TemplateModels\TableModels\RowModel.cs" />
+    <Compile Include="Models\TemplateModels\TableModels\TableModel.cs" />
     <Compile Include="Models\TemplateModels\TemplateElement.cs" />
-    <Compile Include="Models\TemplateModels\TemplateGroupColumn.cs" />
     <Compile Include="Models\TemplateModels\TemplateMerge.cs" />
     <Compile Include="Models\TemplateModels\TemplateModel.cs" />
     <Compile Include="Models\TemplateModels\TemplateNewLine.cs" />
     <Compile Include="Models\TemplateModels\TemplateParagraph.cs" />
     <Compile Include="Models\TemplateModels\TemplateStyle.cs" />
-    <Compile Include="Models\TemplateModels\TemplateTable.cs" />
-    <Compile Include="Models\TemplateModels\TemplateTableCell.cs" />
-    <Compile Include="Models\TemplateModels\TemplateTableColumn.cs" />
-    <Compile Include="Models\TemplateModels\TemplateTableFooter.cs" />
-    <Compile Include="Models\TemplateModels\TemplateTableHeader.cs" />
-    <Compile Include="Models\TemplateModels\TemplateTableRow.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
