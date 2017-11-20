@@ -42,5 +42,35 @@ namespace QuarkPoint.Exporter.Helpers
             {
             }
         }
+
+        /// <summary>
+        /// generate paragraph
+        /// </summary>
+        public static Paragraph GenerateParagraphByStyle(TemplateStyle style, string content)
+        {
+            try
+            {
+                
+                var rProperties = ParagraphStyleHelper.GenerateRunProperitiesByStyle(style);
+                var pProperties = ParagraphStyleHelper.GenerateParagraphPropertiesByStyle(style);
+
+                Run run = new Run();
+                run.Append(rProperties);
+
+                var text = new Text(content);
+                run.Append(text);
+
+                var tParagraph = new Paragraph();
+                tParagraph.Append(pProperties);
+                tParagraph.Append(run);
+
+                return tParagraph;
+
+            }
+            catch (Exception e)
+            {
+                return new Paragraph();
+            }
+        }
     }
 }

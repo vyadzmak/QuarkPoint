@@ -33,5 +33,24 @@ namespace QuarkPoint.Exporter.Helpers
                 return line;
             }
         }
+
+
+        /// <summary>
+        /// init data models
+        /// </summary>
+        /// <returns></returns>
+        public static List<List<string>> InitArrayData(object currentProject, List<VariableModel> vars)
+        {
+            try
+            {
+                List<List<string>> results = new List<List<string>>();
+                results = JHelper.GetToArrayValues(currentProject, vars);
+                return results;
+            }
+            catch (Exception e)
+            {
+                return new List<List<string>>();
+            }
+        }
     }
 }

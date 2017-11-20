@@ -16,7 +16,16 @@ namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
         {
             try
             {
-
+                Style = new TemplateStyle()
+                {
+                    BackgroundColor = "#ffffff",
+                    FontName = FontName.Times,
+                    FontSize = 10,
+                    FontWeight = FontWeight.Bold,
+                    ForegroundColor = "#000000",
+                    TextAlign = TextAlign.Center,
+                    UnderLine = false
+                };
             }
             catch (Exception e)
             {
@@ -25,6 +34,11 @@ namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
         #endregion
 
         #region fields
+
+        /// <summary>
+        /// style
+        /// </summary>
+        public TemplateStyle Style { get; set; }
         #endregion
     }
 }

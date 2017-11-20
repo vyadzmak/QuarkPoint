@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\DataInitializer.cs" />
+    <Compile Include="Helpers\FormattingHelper.cs" />
     <Compile Include="Helpers\GenerateDocumentHelper.cs" />
     <Compile Include="Helpers\GenerateNewLineHelper.cs" />
     <Compile Include="Helpers\GenerateTableHelper.cs" />
@@ -66,7 +67,11 @@
     <Compile Include="Helpers\ParagraphStyleHelper.cs" />
     <Compile Include="Helpers\ParseHelper.cs" />
     <Compile Include="Helpers\RegExpHelper.cs" />
+    <Compile Include="Helpers\TableDataInitializer.cs" />
+    <Compile Include="Helpers\TableStyleGenerator.cs" />
+    <Compile Include="Models\ParseModels\ReplaceModel.cs" />
     <Compile Include="Models\ParseModels\VariableModel.cs" />
+    <Compile Include="Models\TemplateModels\AdditionalTableModels\ColumnEnabledModel.cs" />
     <Compile Include="Models\TemplateModels\TableModels\CellModel.cs" />
     <Compile Include="Models\TemplateModels\TableModels\ColumnModel.cs" />
     <Compile Include="Models\TemplateModels\TableModels\FooterModel.cs" />

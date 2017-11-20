@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuarkPoint.Exporter.Models.TemplateModels;
+using QuarkPoint.Exporter.Models.TemplateModels.TableModels;
 
 namespace QuarkPoint.Exporter.Helpers
 {
@@ -38,18 +39,16 @@ namespace QuarkPoint.Exporter.Helpers
 
                         case ElementType.Таблица:
 
-                            for (int i = 0; i < element.Table.Rows.Count; i++)
+                            switch (element.Table.DataType)
                             {
-                                var row = element.Table.Rows[i];
+                                    case DataType.Manual:
+                                        TableDataInitializer.InitManualTableData(currentProject,element);
+                                    break;
 
-                                for (int j = 0; j < row.Cells.Count; j++)
-                                {
-                                    var cell = row.Cells[j];
+                                case DataType.AutoByDataWithoutFormatting:
+                                    TableDataInitializer.InitAutoByDataWithoutFormattingTableData(currentProject, element);
+                                    break;
 
-                                    var _el = ParseHelper.GetToVars(cell.Value);
-                                    cell.Value =
-                                        DataInitializer.InitData(currentProject, _el, cell.Value);
-                                }
                             }
 
 

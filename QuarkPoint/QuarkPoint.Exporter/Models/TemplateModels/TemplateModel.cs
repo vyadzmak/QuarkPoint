@@ -27,6 +27,8 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
 
             }
         }
+
+      
         #endregion
 
         #region fields

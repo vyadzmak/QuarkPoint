@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using QuarkPoint.Exporter.Models.ParseModels;
 
 namespace QuarkPoint.Exporter.Models.TemplateModels
 {
@@ -17,7 +18,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         {
             try
             {
-
+                Formatting = new List<ReplaceModel>();
             }
             catch (Exception e)
             {
@@ -34,6 +35,13 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         /// </summary>
         [JsonProperty("text")]
         public string Text { get; set; }
+
+        /// <summary>
+        /// formatting
+        /// </summary>
+        [JsonProperty("formatting")]
+
+        public List<ReplaceModel> Formatting { get; set; }
         #endregion
     }
 }

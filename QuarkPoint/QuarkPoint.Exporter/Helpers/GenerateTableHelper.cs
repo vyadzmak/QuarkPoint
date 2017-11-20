@@ -16,6 +16,70 @@ namespace QuarkPoint.Exporter.Helpers
     public static class GenerateTableHelper
     {
         /// <summary>
+        /// init default cell style
+        /// </summary>
+        private static Paragraph InitDefaultCellStyle(TemplateElement element, string value)
+        {
+            try
+            {
+                Paragraph paragraph = new Paragraph();
+                var rProperties = ParagraphStyleHelper.GenerateRunProperities(element);
+                var pProperties = ParagraphStyleHelper.GenerateParagraphProperties(element);
+
+                Run run = new Run();
+                run.Append(rProperties);
+
+                var text = new Text(value);
+                run.Append(text);
+
+                var tParagraph = new Paragraph();
+                tParagraph.Append(pProperties);
+                tParagraph.Append(run);
+
+                
+                return tParagraph;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="table"></param>
+        /// <param name="element"></param>
+        private static void GenerateHeader(Table table, TemplateElement element)
+        {
+            try
+            {
+                var xTable = element.Table;
+                for (var i = 0; i < xTable.Headers.Count; i++)
+                {
+                    var tr = new TableRow();
+                    for (var j = 0; j < xTable.Headers[i].Cells.Count; j++)
+                    {
+                        var tc = new TableCell();
+                        Paragraph paragraph = GenerateParagraphHelper.GenerateParagraphByStyle(xTable.Headers[i].Style, xTable.Headers[i].Cells[j].Value);
+                        
+                        tc.Append(paragraph);
+
+                        // Assume you want columns that are automatically sized.
+                        tc.Append(new TableCellProperties(
+                            new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+
+                        tr.Append(tc);
+                    }
+                    table.Append(tr);
+                }
+            }
+            catch (Exception e)
+            {
+            }
+        }
+
+        /// <summary>
         /// generate paragraph
         /// </summary>
         public static void GenerateTable(Body body,TemplateElement element)
@@ -26,47 +90,11 @@ namespace QuarkPoint.Exporter.Helpers
                 var xTable = element.Table;
                 Table table = new Table();
 
-                TableProperties props = new TableProperties(
-                    new TableBorders(
-                        new TopBorder
-                        {
-                            Val = new EnumValue<BorderValues>(BorderValues.Single),
-                            Size = 1
-                        },
-                        new BottomBorder
-                        {
-                            Val = new EnumValue<BorderValues>(BorderValues.Single),
-                            Size = 1
-                        },
-                        new LeftBorder
-                        {
-                            Val = new EnumValue<BorderValues>(BorderValues.Single),
-                            Size = 1
-                        },
-                        new RightBorder
-                        {
-                            Val = new EnumValue<BorderValues>(BorderValues.Single),
-                            Size = 1
-                        },
-                        new InsideHorizontalBorder
-                        {
-                            Val = new EnumValue<BorderValues>(BorderValues.Single),
-                            Size = 1
-                        },
-                        new InsideVerticalBorder
-                        {
-                            Val = new EnumValue<BorderValues>(BorderValues.Single),
-                            Size = 1
-                        }));
-
-                TableProperties tblProps = new TableProperties();
-                TableWidth tableWidth = new TableWidth() { Width = "5000", Type = TableWidthUnitValues.Pct };
-
-                TableStyle tableStyle = new TableStyle() { Val = "TableGrid" };
-                tblProps.Append(tableStyle, tableWidth);
-                table.Append(tblProps);
-                table.AppendChild<TableProperties>(props);
-
+                TableStyleGenerator.SetDefaultTableStyle(table);
+                if (element.Table.Headers!=null && element.Table.Headers.Count > 0)
+                {
+                    GenerateHeader(table,element);
+                }
                 for (var i = 0; i < xTable.Rows.Count; i++)
                 {
                     var tr = new TableRow();
@@ -74,9 +102,10 @@ namespace QuarkPoint.Exporter.Helpers
                     {
                         var tc = new TableCell();
 
+                        Paragraph paragraph = InitDefaultCellStyle(element,FormattingHelper.FormatTableElements(element, xTable.Rows[i].Cells[j].Value));
 
 
-                        tc.Append(new Paragraph(new Run(new Text(xTable.Rows[i].Cells[j].Value))));
+                        tc.Append(paragraph);
 
                         // Assume you want columns that are automatically sized.
                         tc.Append(new TableCellProperties(
@@ -88,6 +117,8 @@ namespace QuarkPoint.Exporter.Helpers
                 }
                 body.Append(table);
 
+
+                //здесь надо применить стили???
             }
             catch (Exception e)
             {

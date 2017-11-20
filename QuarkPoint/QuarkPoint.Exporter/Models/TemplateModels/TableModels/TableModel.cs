@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using QuarkPoint.Exporter.Models.ParseModels;
+using QuarkPoint.Exporter.Models.TemplateModels.AdditionalTableModels;
 
 namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
 {
@@ -28,6 +30,17 @@ namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
                 Rows = new List<RowModel>();
                 Columns = new List<ColumnModel>();
                 IsInit = false;
+                Formatting = new List<ReplaceModel>();
+                DefaultCellStyle = new TemplateStyle()
+                {
+                    BackgroundColor = "#ffffff",
+                    FontName = FontName.Times,
+                    FontSize = 10,
+                    FontWeight = FontWeight.Normal,
+                    ForegroundColor = "#000000",
+                    TextAlign = TextAlign.Center,
+                    UnderLine =  false
+                };
             }
             catch (Exception e)
             {
@@ -110,6 +123,20 @@ namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
         /// </summary>
         [JsonProperty("columns")]
         public List<ColumnModel> Columns { get; set; }
+
+
+        /// <summary>
+        /// default cell style
+        /// </summary>
+        [JsonProperty("default_style")]
+        public TemplateStyle DefaultCellStyle { get; set; }
+
+        /// <summary>
+        /// formatting
+        /// </summary>
+        [JsonProperty("formatting")]
+
+        public List<ReplaceModel> Formatting { get; set; }
         #endregion
 
         #region methods
@@ -120,6 +147,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
         {
             try
             {
+                Columns = new List<ColumnModel>();
                 for (int i = 0; i < ColumnsCount; i++)
                 {
                     string name = "column " + i;
@@ -131,6 +159,37 @@ namespace QuarkPoint.Exporter.Models.TemplateModels.TableModels
             {
             }
         }
+
+
+        /// <summary>
+        /// init columns by vars
+        /// </summary>
+        /// <param name="columns"></param>
+        public void InitColumnsWithVariable(List<ColumnEnabledModel> columns)
+        {
+            try
+            {
+                this.ColumnsCount = columns.Count;
+                InitColumns();
+
+                Rows = new List<RowModel>();
+                RowModel model = new RowModel();
+                model.Index = 0;
+                int cIndex = 0;
+                foreach (var column in columns)
+                {
+                    model.Cells.Add(new CellModel() {Index = cIndex, Name = column.Name,Value = column.Name});
+                    cIndex++;
+                }
+                Rows.Add(model);
+
+            }
+            catch (Exception e)
+            {
+            }
+        }
         #endregion
+
+
     }
 }

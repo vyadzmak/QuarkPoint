@@ -76,6 +76,8 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
         /// </summary>
         [JsonProperty("new_line")]
         public TemplateNewLine NewLine { get; set; }
+
+        
         #endregion
     }
 }

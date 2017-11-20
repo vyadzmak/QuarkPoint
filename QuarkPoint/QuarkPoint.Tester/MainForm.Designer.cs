@@ -223,12 +223,12 @@
             this.tsmGenerateSelectedElement.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.tsmGenerateSelectedElement.Size = new System.Drawing.Size(315, 22);
             this.tsmGenerateSelectedElement.Text = "Сгенерировать выбранный элемент";
+            this.tsmGenerateSelectedElement.Visible = false;
             // 
             // tsmGenerateFullTemplate
             // 
             this.tsmGenerateFullTemplate.Name = "tsmGenerateFullTemplate";
-            this.tsmGenerateFullTemplate.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.B)));
+            this.tsmGenerateFullTemplate.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.tsmGenerateFullTemplate.Size = new System.Drawing.Size(315, 22);
             this.tsmGenerateFullTemplate.Text = "Сгенерировать весь шаблон";
             // 
