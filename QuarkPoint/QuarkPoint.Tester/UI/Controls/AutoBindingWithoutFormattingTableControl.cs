@@ -24,6 +24,8 @@ namespace QuarkPoint.Tester.UI.Controls
         /// source data
         /// </summary>
         private string SourceData = "";
+
+        private int CurrentColumnIndex = -1;
         #region constructor
         /// <summary>
         /// constructor
@@ -175,6 +177,87 @@ namespace QuarkPoint.Tester.UI.Controls
             catch (Exception exception)
             {
 
+            }
+        }
+
+        private void chlbFields_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                CurrentColumnIndex = chlbFields.SelectedIndex;
+            }
+            catch (Exception exception)
+            {
+
+            }
+        }
+
+        private void btnUpElement_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CurrentColumnIndex-1<0) return;
+
+                int prevIndex = CurrentColumnIndex - 1;
+
+                var prevItem = chlbFields.Items[prevIndex];
+                var currItem = chlbFields.Items[CurrentColumnIndex];
+
+                var tmpItem = prevItem;
+                chlbFields.Items[prevIndex] = currItem;
+                chlbFields.Items[CurrentColumnIndex] = tmpItem;
+
+                chlbFields.SelectedIndex = prevIndex;
+
+                List<ColumnEnabledModel> columns = new List<ColumnEnabledModel>();
+
+                foreach (var item in chlbFields.Items)
+                {
+                    string name = txtSourceData.Name.Replace("{", "").Replace("}", "");
+
+                    name = "{" + name + "." + item + "}";
+                    columns.Add(new ColumnEnabledModel() { Checked = true, Name = name });
+                }
+
+                Program.MainForm.CurrentElement.Table.InitColumnsWithVariable(columns);
+            }
+            catch (Exception exception)
+            {
+                
+            }
+        }
+
+        private void btnDownElement_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CurrentColumnIndex+1 >= chlbFields.Items.Count) return;
+
+                int nextIndex = CurrentColumnIndex + 1;
+
+                var nextItem = chlbFields.Items[nextIndex];
+                var currItem = chlbFields.Items[CurrentColumnIndex];
+
+                var tmpItem = nextItem;
+                chlbFields.Items[nextIndex] = currItem;
+                chlbFields.Items[CurrentColumnIndex] = tmpItem;
+
+                chlbFields.SelectedIndex = nextIndex;
+
+                List<ColumnEnabledModel> columns = new List<ColumnEnabledModel>();
+
+                foreach (var item in chlbFields.Items)
+                {
+                    string name = txtSourceData.Name.Replace("{", "").Replace("}", "");
+
+                    name = "{" + name + "." + item + "}";
+                    columns.Add(new ColumnEnabledModel() { Checked = true, Name = name });
+                }
+
+                Program.MainForm.CurrentElement.Table.InitColumnsWithVariable(columns);
+            }
+            catch (Exception exception)
+            {
             }
         }
     }

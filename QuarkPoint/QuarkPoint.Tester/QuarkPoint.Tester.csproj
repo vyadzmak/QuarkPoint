@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Controls\ControlLoader.cs" />
+    <Compile Include="Helpers\DataLoaders\LoadParagraphContent.cs" />
     <Compile Include="Helpers\DataLoaders\LoadTableContent.cs" />
     <Compile Include="Helpers\GUI\GuiEventListeners.cs" />
     <Compile Include="Helpers\GUI\GuiHelper.cs" />

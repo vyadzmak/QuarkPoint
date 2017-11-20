@@ -1,57 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuarkPoint.Exporter.Models.TemplateModels;
+using QuarkPoint.Tester.Helpers.DataLoaders;
 
 namespace QuarkPoint.Tester.UI.Controls
 {
     public partial class ParagraphPropertiesControl : UserControl
     {
-        TemplateElement element = Program.MainForm.CurrentElement;
-
-        #region help methods
-        /// <summary>
-        /// color invertor
-        /// </summary>
-        /// <param name="ColourToInvert"></param>
-        /// <returns></returns>
-        Color InvertMeAColour(Color ColourToInvert)
-        {
-            return Color.FromArgb((byte)~ColourToInvert.R, (byte)~ColourToInvert.G, (byte)~ColourToInvert.B);
-        }
-        #endregion
+        private readonly TemplateElement element = Program.MainForm.CurrentElement;
 
         #region constructor
+
         /// <summary>
-        /// constructor
+        ///     constructor
         /// </summary>
         public ParagraphPropertiesControl()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region help methods
+
+        /// <summary>
+        ///     color invertor
+        /// </summary>
+        /// <param name="ColourToInvert"></param>
+        /// <returns></returns>
+        private Color InvertMeAColour(Color ColourToInvert)
+        {
+            return Color.FromArgb((byte) ~ColourToInvert.R, (byte) ~ColourToInvert.G, (byte) ~ColourToInvert.B);
+        }
+
         #endregion
 
         #region init control
+
         /// <summary>
-        /// init control
+        ///     init control
         /// </summary>
         public void InitControl()
         {
             try
             {
-                this.Dock = DockStyle.Fill;
+                Dock = DockStyle.Fill;
                 txtElementName.DataBindings.Add("Text",
                     Program.MainForm.CurrentElement,
                     "Title",
                     false,
                     DataSourceUpdateMode.OnPropertyChanged);
-
 
 
                 nFontSize.DataBindings.Add("Value",
@@ -60,7 +59,7 @@ namespace QuarkPoint.Tester.UI.Controls
                     false,
                     DataSourceUpdateMode.OnPropertyChanged);
 
-                
+
                 //binding combobox
                 cbFont.DataSource = Enum.GetValues(typeof(FontName));
                 cbFont.SelectedItem = element.Paragraph.FontName;
@@ -73,14 +72,14 @@ namespace QuarkPoint.Tester.UI.Controls
                 cbTextAlign.DataSource = Enum.GetValues(typeof(TextAlign));
                 cbTextAlign.SelectedItem = element.Paragraph.TextAlign;
                 cbTextAlign.SelectedIndexChanged += CbTextAlign_SelectedIndexChanged;
-                rtbText.Text=element.Paragraph.Text ;
+                rtbText.Text = element.Paragraph.Text;
 
                 btnBackColor.Text = element.Paragraph.BackgroundColor;
-                btnBackColor.BackColor = System.Drawing.ColorTranslator.FromHtml(element.Paragraph.BackgroundColor);
+                btnBackColor.BackColor = ColorTranslator.FromHtml(element.Paragraph.BackgroundColor);
                 btnBackColor.ForeColor = InvertMeAColour(btnBackColor.BackColor);
 
                 btnForegroundColor.Text = element.Paragraph.ForegroundColor;
-                btnForegroundColor.BackColor = System.Drawing.ColorTranslator.FromHtml(element.Paragraph.ForegroundColor);
+                btnForegroundColor.BackColor = ColorTranslator.FromHtml(element.Paragraph.ForegroundColor);
                 btnForegroundColor.ForeColor = InvertMeAColour(btnForegroundColor.BackColor);
 
                 rtbText.ForeColor = btnForegroundColor.BackColor;
@@ -88,14 +87,44 @@ namespace QuarkPoint.Tester.UI.Controls
             }
             catch (Exception exception)
             {
-
             }
         }
+
         #endregion
 
+        private void tcParagraphProperties_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var page = tcParagraphProperties.SelectedTab;
+                switch (page.Name)
+                {
+                    case "tpFormatting":
+                        LoadParagraphContent.LoadDataToFormatting(dgvFormatting);
+
+                        break;
+                }
+            }
+            catch (Exception exception)
+            {
+            }
+        }
+
+        private void dgvFormatting_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                LoadParagraphContent.LoadDataFromFormatting(dgvFormatting);
+            }
+            catch (Exception exception)
+            {
+            }
+        }
+
         #region control events
+
         /// <summary>
-        /// text align combobox
+        ///     text align combobox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -104,17 +133,16 @@ namespace QuarkPoint.Tester.UI.Controls
             try
             {
                 TextAlign textAlign;
-                Enum.TryParse<TextAlign>(cbTextAlign.SelectedValue.ToString(), out textAlign);
+                Enum.TryParse(cbTextAlign.SelectedValue.ToString(), out textAlign);
                 element.Paragraph.TextAlign = textAlign;
             }
             catch (Exception exception)
             {
-                
             }
         }
 
         /// <summary>
-        /// font weight combobox events
+        ///     font weight combobox events
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -123,17 +151,16 @@ namespace QuarkPoint.Tester.UI.Controls
             try
             {
                 FontWeight fontWeight;
-                Enum.TryParse<FontWeight>(cbFontWeight.SelectedValue.ToString(), out fontWeight);
+                Enum.TryParse(cbFontWeight.SelectedValue.ToString(), out fontWeight);
                 element.Paragraph.FontWeight = fontWeight;
             }
             catch (Exception exception)
             {
-                
             }
         }
 
         /// <summary>
-        /// change font name
+        ///     change font name
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -142,19 +169,17 @@ namespace QuarkPoint.Tester.UI.Controls
             try
             {
                 FontName fontName;
-                Enum.TryParse<FontName>(cbFont.SelectedValue.ToString(), out fontName);
+                Enum.TryParse(cbFont.SelectedValue.ToString(), out fontName);
                 element.Paragraph.FontName = fontName;
-
             }
             catch (Exception exception)
             {
             }
         }
 
-        
 
         /// <summary>
-        /// text and schema rtb event
+        ///     text and schema rtb event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -170,7 +195,7 @@ namespace QuarkPoint.Tester.UI.Controls
         }
 
         /// <summary>
-        /// foreground color button
+        ///     foreground color button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -182,7 +207,7 @@ namespace QuarkPoint.Tester.UI.Controls
                 {
                     btnForegroundColor.BackColor = cd.Color;
                     btnForegroundColor.ForeColor = InvertMeAColour(cd.Color);
-                    string c = ColorTranslator.ToHtml(cd.Color).ToString();
+                    var c = ColorTranslator.ToHtml(cd.Color);
                     rtbText.ForeColor = cd.Color;
                     element.Paragraph.ForegroundColor = c;
                     btnForegroundColor.Text = c;
@@ -194,7 +219,7 @@ namespace QuarkPoint.Tester.UI.Controls
         }
 
         /// <summary>
-        /// back color button event
+        ///     back color button event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -208,7 +233,7 @@ namespace QuarkPoint.Tester.UI.Controls
                     btnBackColor.ForeColor = InvertMeAColour(cd.Color);
                     rtbText.BackColor = cd.Color;
 
-                    string c = ColorTranslator.ToHtml(cd.Color).ToString();
+                    var c = ColorTranslator.ToHtml(cd.Color);
                     element.Paragraph.BackgroundColor = c;
                     btnBackColor.Text = c;
                 }
@@ -217,6 +242,7 @@ namespace QuarkPoint.Tester.UI.Controls
             {
             }
         }
+
         #endregion
     }
 }

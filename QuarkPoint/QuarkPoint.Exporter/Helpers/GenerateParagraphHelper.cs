@@ -28,7 +28,7 @@ namespace QuarkPoint.Exporter.Helpers
                 Run run = new Run();
                 run.Append(rProperties);
                 
-                var text = new Text(paragraph.Text);
+                var text = new Text(FormattingHelper.FormatParagraphElements(element,paragraph.Text));
                 run.Append(text);
 
                 var tParagraph = new Paragraph();

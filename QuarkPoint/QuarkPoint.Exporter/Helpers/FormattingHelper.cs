@@ -13,6 +13,35 @@ namespace QuarkPoint.Exporter.Helpers
         /// 
         /// </summary>
         /// <returns></returns>
+        public static string FormatParagraphElements(TemplateElement element, string value)
+        {
+            try
+            {
+                var formats = element.Paragraph.Formatting;
+
+                string result = value;
+
+
+                foreach (var format in formats)
+                {
+                    if (value.ToLower().Contains(format.From.ToLower()))
+                    {
+                        value =value.Replace(format.From, format.To);
+                    }
+                }
+
+                return value;
+
+            }
+            catch (Exception e)
+            {
+                return value;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static string FormatTableElements(TemplateElement element, string value)
         {
             try
