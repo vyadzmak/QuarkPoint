@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuarkPoint.Exporter.AdditionalExporters.Balance.ConsBalance;
 using QuarkPoint.Exporter.Models.TemplateModels;
 using QuarkPoint.Exporter.Models.TemplateModels.TableModels;
 
@@ -57,6 +58,10 @@ namespace QuarkPoint.Exporter.Helpers
 
                         case ElementType.Перенос:
                             GenerateNewLineHelper.GenerateNewLine(body);
+                            break;
+
+                        case ElementType.КонсБаланс:
+                            ConsBalanceExporter.ExportConsolidateBalance(currentProject,body);
                             break;
                     }
                 }

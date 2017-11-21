@@ -56,6 +56,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalExporters\Balance\ConsBalance\ConsBalanceExporter.cs" />
     <Compile Include="Helpers\DataInitializer.cs" />
     <Compile Include="Helpers\FormattingHelper.cs" />
     <Compile Include="Helpers\GenerateDocumentHelper.cs" />
@@ -70,8 +71,18 @@
     <Compile Include="Helpers\TableDataInitializer.cs" />
     <Compile Include="Helpers\TableStyleGenerator.cs" />
     <Compile Include="Helpers\ValueConverter.cs" />
+    <Compile Include="Models\HardModels\Balance\BalanceElement.cs" />
+    <Compile Include="Models\HardModels\Balance\BalanceModel.cs" />
+    <Compile Include="Models\HardModels\Balance\AssetsModel.cs" />
+    <Compile Include="Models\HardModels\Balance\CompanyBalanceModel.cs" />
+    <Compile Include="Models\HardModels\Balance\CompanyModel.cs" />
+    <Compile Include="Models\HardModels\Balance\ConsFinDataBalanceModel.cs" />
+    <Compile Include="Models\HardModels\Balance\FinDataBalanceModel.cs" />
+    <Compile Include="Models\HardModels\Balance\LiabilityModel.cs" />
     <Compile Include="Models\ParseModels\ReplaceModel.cs" />
     <Compile Include="Models\ParseModels\VariableModel.cs" />
+    <Compile Include="Models\SchemaModels\ConsolidateBalanceSchema.cs" />
+    <Compile Include="Models\SchemaModels\SchemaRow.cs" />
     <Compile Include="Models\TemplateModels\AdditionalTableModels\ColumnEnabledModel.cs" />
     <Compile Include="Models\TemplateModels\TableModels\CellModel.cs" />
     <Compile Include="Models\TemplateModels\TableModels\ColumnModel.cs" />
@@ -89,6 +100,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AdditionalModels\" />
     <Folder Include="Models\WordModels\" />
   </ItemGroup>
   <ItemGroup>

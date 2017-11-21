@@ -8,6 +8,7 @@ using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using QuarkPoint.Exporter.Helpers;
+using QuarkPoint.Exporter.Models.HardModels.Balance;
 using QuarkPoint.Exporter.Models.TemplateModels;
 using QuarkPoint.Tester.Helpers.Controls;
 using QuarkPoint.Tester.Helpers.ReuestHelpers;
@@ -101,6 +102,23 @@ namespace QuarkPoint.Tester.Helpers.GUI
 
                             
                             dynamic r_obj = JsonConvert.DeserializeObject(obj.ProjectContent.ToString());
+
+                            object bObj = r_obj["FinDataBalance"];
+                            object cObj = r_obj["ConsolidatedBalance"];
+                            string b = bObj.ToString();
+                            string c = cObj.ToString();
+
+
+                            var settings = new JsonSerializerSettings
+                            {
+                                NullValueHandling = NullValueHandling.Ignore,
+                                MissingMemberHandling = MissingMemberHandling.Ignore
+                            };
+
+                            FinDataBalanceModel mdl = JsonConvert.DeserializeObject<FinDataBalanceModel>(b,settings);
+
+                            ConsFinDataBalanceModel cMdl = JsonConvert.DeserializeObject<ConsFinDataBalanceModel>(c, settings);
+
                             Program.MainForm.CurrentProject = r_obj;
                         }
                     }

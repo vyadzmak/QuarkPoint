@@ -18,7 +18,7 @@ namespace QuarkPoint.Exporter.Helpers
         /// <summary>
         /// init default cell style
         /// </summary>
-        private static Paragraph InitDefaultCellStyle(TemplateElement element, string value)
+        public static Paragraph InitDefaultCellStyle(TemplateElement element, string value)
         {
             try
             {

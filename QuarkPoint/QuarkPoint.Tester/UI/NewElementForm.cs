@@ -86,6 +86,30 @@ namespace QuarkPoint.Tester.UI
                             element.NewLine = new TemplateNewLine();
                             break;
 
+                        case ElementType.КонсБаланс:
+                            element.ElementType = ElementType.КонсБаланс;
+                            element.SystemObject = new object();
+                            break;
+
+                        case ElementType.Балансы:
+                            element.ElementType = ElementType.Балансы;
+                            element.SystemObject = new object();
+                            break;
+
+                        case ElementType.КонсОпиу:
+                            element.ElementType = ElementType.КонсОпиу;
+                            element.SystemObject = new object();
+                            break;
+
+                        case ElementType.ОПиУ:
+                            element.ElementType = ElementType.ОПиУ;
+                            element.SystemObject = new object();
+                            break;
+
+                        case ElementType.ОДДС:
+                            element.ElementType = ElementType.ОДДС;
+                            element.SystemObject = new object();
+                            break;
                     }
                     template.Changed = true;
                     this.Close();

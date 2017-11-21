@@ -59,6 +59,26 @@ namespace QuarkPoint.Tester.Helpers.Controls
                         case ElementType.Перенос:
                         LoadControl(null);
                         break;
+
+                    case ElementType.КонсБаланс:
+                        LoadControl(null);
+                        break;
+
+                    case ElementType.Балансы:
+                        LoadControl(null);
+                        break;
+
+                    case ElementType.КонсОпиу:
+                        LoadControl(null);
+                        break;
+
+                    case ElementType.ОПиУ:
+                        LoadControl(null);
+                        break;
+
+                    case ElementType.ОДДС:
+                        LoadControl(null);
+                        break;
                 }
 
 
