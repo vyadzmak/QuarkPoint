@@ -69,6 +69,7 @@
     <Compile Include="Helpers\RegExpHelper.cs" />
     <Compile Include="Helpers\TableDataInitializer.cs" />
     <Compile Include="Helpers\TableStyleGenerator.cs" />
+    <Compile Include="Helpers\ValueConverter.cs" />
     <Compile Include="Models\ParseModels\ReplaceModel.cs" />
     <Compile Include="Models\ParseModels\VariableModel.cs" />
     <Compile Include="Models\TemplateModels\AdditionalTableModels\ColumnEnabledModel.cs" />

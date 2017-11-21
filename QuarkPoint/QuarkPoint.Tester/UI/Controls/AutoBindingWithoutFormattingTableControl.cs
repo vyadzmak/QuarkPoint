@@ -26,6 +26,8 @@ namespace QuarkPoint.Tester.UI.Controls
         private string SourceData = "";
 
         private int CurrentColumnIndex = -1;
+
+        private bool isLoading = false;
         #region constructor
         /// <summary>
         /// constructor
@@ -46,6 +48,7 @@ namespace QuarkPoint.Tester.UI.Controls
         {
             try
             {
+                isLoading = true;
                 var element = Program.MainForm.CurrentElement;
                 txtSourceData.Text = element.Table.DataSource;
                 string sourceData = txtSourceData.Text;
@@ -71,7 +74,7 @@ namespace QuarkPoint.Tester.UI.Controls
                     }
 
                 }
-
+                isLoading = false;
             }
             catch (Exception e)
             {
@@ -136,6 +139,7 @@ namespace QuarkPoint.Tester.UI.Controls
         {
             try
             {
+                if (isLoading) return;
                 if (chlbFields.Items.Count == 0) return;
                 int index = 0;
                 //chlbFields.SetItemCheckState(e.Index,e.NewValue);
