@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using QuarkPoint.Exporter.AdditionalExporters.Balance.Balances;
 using QuarkPoint.Exporter.AdditionalExporters.Balance.ConsBalance;
+using QuarkPoint.Exporter.AdditionalExporters.Odds;
+using QuarkPoint.Exporter.AdditionalExporters.Opiu.ConsOpiu;
+using QuarkPoint.Exporter.AdditionalExporters.Opiu.Opius;
 using QuarkPoint.Exporter.Models.TemplateModels;
 using QuarkPoint.Exporter.Models.TemplateModels.TableModels;
 
@@ -67,6 +70,17 @@ namespace QuarkPoint.Exporter.Helpers
 
                         case ElementType.Балансы:
                             BalancesExporter.ExportBalances(currentProject, body);
+                            break;
+
+                        case ElementType.КонсОпиу:
+                            ConsOpiuExporter.ExportConsolidateOpiu(currentProject,body);
+                            break;
+
+                        case ElementType.ОПиУ:
+                            OpiusExporter.ExportOpiu(currentProject,body);
+                            break;
+                        case ElementType.ОДДС:
+                            OddsExporter.ExportOdds(currentProject,body);
                             break;
                     }
                 }

@@ -61,6 +61,9 @@
     <Compile Include="AdditionalExporters\Balance\Balances\BalancesExporter.cs" />
     <Compile Include="AdditionalExporters\Balance\ConsBalance\ConsBalanceExporter.cs" />
     <Compile Include="AdditionalExporters\Balance\Balances\OutBalanceExporter.cs" />
+    <Compile Include="AdditionalExporters\Odds\OddsExporter.cs" />
+    <Compile Include="AdditionalExporters\Opiu\ConsOpiu\ConsOpiuExporter.cs" />
+    <Compile Include="AdditionalExporters\Opiu\Opius\OpiusExporter.cs" />
     <Compile Include="AdditionalModels\BalanceHeaderElement.cs" />
     <Compile Include="AdditionalModels\BalanceHeaderModel.cs" />
     <Compile Include="Helpers\DataInitializer.cs" />
@@ -93,6 +96,7 @@
     <Compile Include="Models\HardModels\Opiu\FinDataOpiuModel.cs" />
     <Compile Include="Models\HardModels\Opiu\OpiuModel.cs" />
     <Compile Include="Models\HardModels\Opiu\OpiuMonthModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\OpiuTableArray.cs" />
     <Compile Include="Models\HardModels\Opiu\OpiuTableModel.cs" />
     <Compile Include="Models\ParseModels\ReplaceModel.cs" />
     <Compile Include="Models\ParseModels\VariableModel.cs" />
@@ -115,7 +119,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AdditionalExporters\Opiu\" />
     <Folder Include="Models\WordModels\" />
   </ItemGroup>
   <ItemGroup>

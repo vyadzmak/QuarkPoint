@@ -134,6 +134,7 @@ namespace QuarkPoint.Tester.Helpers.GUI
                             FinDataOddsModel dMdl = JsonConvert.DeserializeObject<FinDataOddsModel>(d, settings);
 
                             
+
                             Program.MainForm.CurrentProject = r_obj;
                         }
                     }
