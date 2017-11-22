@@ -56,8 +56,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalExporters\Balance\Balances\BalanceDescriptionTablesExporter.cs" />
     <Compile Include="AdditionalExporters\Balance\Balances\BalancesExporter.cs" />
     <Compile Include="AdditionalExporters\Balance\ConsBalance\ConsBalanceExporter.cs" />
+    <Compile Include="AdditionalModels\BalanceHeaderElement.cs" />
+    <Compile Include="AdditionalModels\BalanceHeaderModel.cs" />
     <Compile Include="Helpers\DataInitializer.cs" />
     <Compile Include="Helpers\FormattingHelper.cs" />
     <Compile Include="Helpers\GenerateDocumentHelper.cs" />
@@ -101,7 +104,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AdditionalModels\" />
     <Folder Include="Models\WordModels\" />
   </ItemGroup>
   <ItemGroup>

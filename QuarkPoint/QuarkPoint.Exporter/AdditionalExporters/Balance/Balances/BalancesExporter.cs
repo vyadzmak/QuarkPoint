@@ -361,6 +361,8 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Balance.Balances
 
                     body.Append(tParagraph);
 
+                    BalanceDescriptionTablesExporter.ExportDescriptionTables(body,balanceModel);
+
                 }
             }
             catch (Exception e)
