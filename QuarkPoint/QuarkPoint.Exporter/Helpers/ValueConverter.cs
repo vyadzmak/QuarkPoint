@@ -42,5 +42,18 @@ namespace QuarkPoint.Exporter.Helpers
                 return toString;
             }
         }
+
+        public static string ConvertBoolean(string toString)
+        {
+            try
+            {
+                if (toString.Equals("True")) return "Да";
+                return "Нет";
+            }
+            catch (Exception e)
+            {
+                return toString;
+            }
+        }
     }
 }

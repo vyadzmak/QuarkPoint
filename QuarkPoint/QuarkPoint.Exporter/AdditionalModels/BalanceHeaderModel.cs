@@ -17,6 +17,7 @@ namespace QuarkPoint.Exporter.AdditionalModels
             try
             {
                 TableName = tableName;
+                Elements = new List<BalanceHeaderElement>();
             }
             catch (Exception e)
             {

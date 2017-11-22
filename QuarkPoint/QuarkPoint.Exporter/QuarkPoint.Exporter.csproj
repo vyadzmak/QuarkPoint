@@ -56,9 +56,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalExporters\Balance\BalanceIndicators\BalanceIndicatorsExporter.cs" />
     <Compile Include="AdditionalExporters\Balance\Balances\BalanceDescriptionTablesExporter.cs" />
     <Compile Include="AdditionalExporters\Balance\Balances\BalancesExporter.cs" />
     <Compile Include="AdditionalExporters\Balance\ConsBalance\ConsBalanceExporter.cs" />
+    <Compile Include="AdditionalExporters\Balance\Balances\OutBalanceExporter.cs" />
     <Compile Include="AdditionalModels\BalanceHeaderElement.cs" />
     <Compile Include="AdditionalModels\BalanceHeaderModel.cs" />
     <Compile Include="Helpers\DataInitializer.cs" />
@@ -83,6 +85,15 @@
     <Compile Include="Models\HardModels\Balance\ConsFinDataBalanceModel.cs" />
     <Compile Include="Models\HardModels\Balance\FinDataBalanceModel.cs" />
     <Compile Include="Models\HardModels\Balance\LiabilityModel.cs" />
+    <Compile Include="Models\HardModels\Odds\FinDataOddsModel.cs" />
+    <Compile Include="Models\HardModels\Odds\OddsHeader.cs" />
+    <Compile Include="Models\HardModels\Odds\OddsModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\ConsFinDataOpiuModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\FinDataOpiuCompanyModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\FinDataOpiuModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\OpiuModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\OpiuMonthModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\OpiuTableModel.cs" />
     <Compile Include="Models\ParseModels\ReplaceModel.cs" />
     <Compile Include="Models\ParseModels\VariableModel.cs" />
     <Compile Include="Models\SchemaModels\ConsolidateBalanceSchema.cs" />
@@ -104,6 +115,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AdditionalExporters\Opiu\" />
     <Folder Include="Models\WordModels\" />
   </ItemGroup>
   <ItemGroup>

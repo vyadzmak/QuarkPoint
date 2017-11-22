@@ -16,6 +16,7 @@ namespace QuarkPoint.Exporter.Models.HardModels.Balance
 
         public double UrgentLiquidityCoef { get; set; }
         public double CurrentLiquidityCoef { get; set; }
+
         public double NetWorkingCapital { get; set; }
         public double OperationCycle { get; set; }
         public double FinancialCycle { get; set; }
@@ -30,5 +31,10 @@ namespace QuarkPoint.Exporter.Models.HardModels.Balance
         public double TurnoverSpeedCoef { get; set; }
         public double TurnoverInventoryCoef { get; set; }
         public double Equity1Coef { get; set; }
+
+        public double DebtorsTurnoverTerm { get; set; }
+        public double InventoriesTurnoverTerm { get; set; }
+        public double CreditorsTurnoverTerm { get; set; }
+        
     }
 }

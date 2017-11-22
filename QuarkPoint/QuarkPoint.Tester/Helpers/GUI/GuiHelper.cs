@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using QuarkPoint.Exporter.Helpers;
 using QuarkPoint.Exporter.Models.HardModels.Balance;
+using QuarkPoint.Exporter.Models.HardModels.Odds;
+using QuarkPoint.Exporter.Models.HardModels.Opiu;
 using QuarkPoint.Exporter.Models.TemplateModels;
 using QuarkPoint.Tester.Helpers.Controls;
 using QuarkPoint.Tester.Helpers.ReuestHelpers;
@@ -105,8 +107,15 @@ namespace QuarkPoint.Tester.Helpers.GUI
 
                             object bObj = r_obj["FinDataBalance"];
                             object cObj = r_obj["ConsolidatedBalance"];
+                            object fObj = r_obj["FinDataOpiu"];
+                            object cfObj = r_obj["ConsolidatedOpiu"];
+                            object dObj = r_obj["FinDataOdds"];
+
                             string b = bObj.ToString();
                             string c = cObj.ToString();
+                            string f = fObj.ToString();
+                            string cf = cfObj.ToString();
+                            string d = dObj.ToString();
 
 
                             var settings = new JsonSerializerSettings
@@ -119,6 +128,12 @@ namespace QuarkPoint.Tester.Helpers.GUI
 
                             ConsFinDataBalanceModel cMdl = JsonConvert.DeserializeObject<ConsFinDataBalanceModel>(c, settings);
 
+                            FinDataOpiuModel fMdl = JsonConvert.DeserializeObject<FinDataOpiuModel>(f, settings);
+
+                            ConsFinDataOpiuModel cfMdl = JsonConvert.DeserializeObject<ConsFinDataOpiuModel>(cf, settings);
+                            FinDataOddsModel dMdl = JsonConvert.DeserializeObject<FinDataOddsModel>(d, settings);
+
+                            
                             Program.MainForm.CurrentProject = r_obj;
                         }
                     }

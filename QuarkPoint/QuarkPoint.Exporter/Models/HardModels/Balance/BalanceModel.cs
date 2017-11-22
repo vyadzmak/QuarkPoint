@@ -37,6 +37,8 @@ namespace QuarkPoint.Exporter.Models.HardModels.Balance
         public double TurnoverInventoryCoef { get;set;}
         public double Equity1Coef { get;set;}
 
-
+        public double DebtorsTurnoverTerm { get; set; }
+        public double InventoriesTurnoverTerm { get; set; }
+        public double CreditorsTurnoverTerm { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Newtonsoft.Json;
+using QuarkPoint.Exporter.AdditionalExporters.Balance.BalanceIndicators;
 using QuarkPoint.Exporter.Helpers;
 using QuarkPoint.Exporter.Models.HardModels.Balance;
 using QuarkPoint.Exporter.Models.TemplateModels;
@@ -52,12 +53,74 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Balance.ConsBalance
             }
         }
 
+        private static bool ChekEmptyLine(string val1, string val2, string val3, string val4)
+        {
+            try
+            {
+                bool v1 = false;
+                bool v2 = false;
+                bool v3 = false;
+                bool v4 = false;
+
+
+                if (string.IsNullOrEmpty(val1) || val1 == "0") v1 = true;
+                if (string.IsNullOrEmpty(val2) || val2 == "0") v2 = true;
+                if (string.IsNullOrEmpty(val3) || val3 == "0") v3 = true;
+                if (string.IsNullOrEmpty(val4) || val4 == "0") v4 = true;
+
+                if (v1 && v2 && v3 && v4) return true;
+                return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+
+        private static bool ChekEmptyPair(string val1, string val2)
+        {
+            try
+            {
+                bool v1 = false;
+                bool v2 = false;
+
+
+
+                if (string.IsNullOrEmpty(val1) || val1 == "0") v1 = true;
+                if (string.IsNullOrEmpty(val2) || val2 == "0") v2 = true;
+
+                if (v1 && v2) return true;
+                return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
 
         private static TableRow GenerateRowBySingleDate(string leftTitle, string firstLeftValue,string secondLeftValue,string rightTitle, string firstRightValue,string secondRightValue, bool bold =false, bool fill =false)
         {
             try
             {
                 TableRow row = new TableRow();
+
+                if (ChekEmptyPair(firstLeftValue, secondLeftValue))
+                {
+                    leftTitle = "";
+                    firstLeftValue = "";
+                    secondLeftValue = "";
+                }
+
+                if (ChekEmptyPair(firstRightValue, secondRightValue))
+                {
+                    rightTitle = "";
+                    firstRightValue = "";
+                    secondRightValue = "";
+                }
+                if (ChekEmptyLine(firstLeftValue, secondLeftValue, firstRightValue, secondRightValue)) return null;
+
+
                 List<TemplateElement> elements = new List<TemplateElement>();
                 #region create elements
                 
@@ -356,6 +419,8 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Balance.ConsBalance
                         
                 }
 
+
+                BalanceIndicatorsExporter.ExportIndicatorsByConsolidateBalance(body,cMdl);
 
             }
             catch (Exception e)
