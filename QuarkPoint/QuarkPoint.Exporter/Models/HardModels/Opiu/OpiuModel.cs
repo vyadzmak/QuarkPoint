@@ -19,5 +19,11 @@ namespace QuarkPoint.Exporter.Models.HardModels.Opiu
         public List<OpiuMonthModel> Months { get; set; }
 
         public List<dynamic> Table { get; set; }
+
+        public List<object> RelatedCompanyRevenues { get; set; }
+
+        public object TotalRealtedCompanyRevenue { get; set; }
+
+        public LoanContributionDetailsModel LoanContributionDetails { get; set; }
     }
 }

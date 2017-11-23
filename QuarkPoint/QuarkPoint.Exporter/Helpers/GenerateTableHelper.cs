@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using QuarkPoint.Exporter.AdditionalExporters.Stylers;
 using QuarkPoint.Exporter.Models.TemplateModels;
 
 namespace QuarkPoint.Exporter.Helpers
@@ -61,14 +62,17 @@ namespace QuarkPoint.Exporter.Helpers
                     for (var j = 0; j < xTable.Headers[i].Cells.Count; j++)
                     {
                         var tc = new TableCell();
+                        xTable.Headers[i].Style.BackgroundColor = "#f2f2f2";
                         Paragraph paragraph = GenerateParagraphHelper.GenerateParagraphByStyle(xTable.Headers[i].Style, xTable.Headers[i].Cells[j].Value);
-                        
+                         
                         tc.Append(paragraph);
 
                         // Assume you want columns that are automatically sized.
                         tc.Append(new TableCellProperties(
                             new TableCellWidth { Type = TableWidthUnitValues.Auto }));
-
+                        TableCellProperties prop = OpiuStyler.GetOpiuTableHeaderCellProperties();
+                        if (prop!=null)
+                            tc.Append(prop);
                         tr.Append(tc);
                     }
                     table.Append(tr);

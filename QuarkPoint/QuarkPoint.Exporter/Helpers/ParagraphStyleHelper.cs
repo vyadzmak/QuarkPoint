@@ -2,6 +2,7 @@
 using DocumentFormat.OpenXml.Wordprocessing;
 using QuarkPoint.Exporter.Models.TemplateModels;
 
+
 namespace QuarkPoint.Exporter.Helpers
 {
     /// <summary>
@@ -85,6 +86,10 @@ namespace QuarkPoint.Exporter.Helpers
 
                 var size = new FontSize();
                 size.Val = (style.FontSize * 2).ToString();
+
+                Color color = new Color();
+                color.Val =style.ForegroundColor;
+                properties.Append(color);
                 properties.Append(size);
 
                 return properties;

@@ -7,6 +7,7 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using QuarkPoint.Exporter.AdditionalExporters.Stylers;
 using QuarkPoint.Exporter.Helpers;
 using QuarkPoint.Exporter.Models.HardModels.Balance;
 using QuarkPoint.Exporter.Models.HardModels.Opiu;
@@ -101,13 +102,13 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.ConsOpiu
                 var tc = new TableCell();
                 Paragraph paragraph = GenerateTableHelper.InitDefaultCellStyle(descript, FormattingHelper.FormatTableElements(descript, descript.Paragraph.Text));
 
+                tc.Append(OpiuStyler.GetOpiuTableHeaderCellProperties());
 
                 tc.Append(paragraph);
 
                 // Assume you want columns that are automatically sized.
-                tc.Append(new TableCellProperties(
-                    new TableCellWidth { Type = TableWidthUnitValues.Auto }));
-
+                //tc.Append(new TableCellProperties(
+                //    new TableCellWidth { Type = TableWidthUnitValues.Auto }));
                 row.Append(tc);
                 foreach (var month in model.Opiu.Months)
                 {
@@ -131,8 +132,9 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.ConsOpiu
 
                     tc1.Append(paragraph1);
                     
-                    tc1.Append(new TableCellProperties(
-                        new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+                    //tc1.Append(new TableCellProperties(
+                    //    new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+                    tc1.Append(OpiuStyler.GetOpiuTableHeaderCellProperties());
 
                     row.Append(tc1);
                 }
@@ -159,8 +161,9 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.ConsOpiu
                 tc.Append(paragraph);
 
                 // Assume you want columns that are automatically sized.
-                tc.Append(new TableCellProperties(
-                    new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+                //tc.Append(new TableCellProperties(
+                //    new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+                tc.Append(OpiuStyler.GetOpiuTableHeaderCellProperties());
 
                 row.Append(tc);
 
@@ -185,8 +188,9 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.ConsOpiu
                 tc.Append(paragraph);
 
                 // Assume you want columns that are automatically sized.
-                tc.Append(new TableCellProperties(
-                    new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+                //tc.Append(new TableCellProperties(
+                //    new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+                tc.Append(OpiuStyler.GetOpiuTableHeaderCellProperties());
 
                 row.Append(tc);
                 table.Append(row);
@@ -217,7 +221,7 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.ConsOpiu
 
                 TableRow row = new TableRow();
                 List<string> fields = new List<string>();
-
+                string title = r["Title"].ToString();
                 fields.Add(r["Title"].ToString());
                 JObject attributesAsJObject = r;
                 Dictionary<string, object> values = attributesAsJObject.ToObject<Dictionary<string, object>>();
@@ -245,8 +249,10 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.ConsOpiu
                         Text = field,
                         BackgroundColor = "#ffffff",
                         TextAlign = TextAlign.Center,
-                        FontSize = 9
+                        FontSize = 8
                     };
+
+                    OpiuStyler.GetOpiuTableParagraphProperties(title,descript.Paragraph);
                     var tc = new TableCell();
                     Paragraph paragraph = GenerateTableHelper.InitDefaultCellStyle(descript, FormattingHelper.FormatTableElements(descript, descript.Paragraph.Text));
 
@@ -257,6 +263,9 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.ConsOpiu
                     tc.Append(new TableCellProperties(
                         new TableCellWidth { Type = TableWidthUnitValues.Auto }));
 
+                    TableCellProperties prop = OpiuStyler.GetOpiuTableRowCellProperties(title);
+                    if (prop!=null)
+                        tc.Append(prop);
                     row.Append(tc);
                 }
 

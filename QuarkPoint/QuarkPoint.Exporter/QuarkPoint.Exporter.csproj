@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,7 +64,9 @@
     <Compile Include="AdditionalExporters\Balance\Balances\OutBalanceExporter.cs" />
     <Compile Include="AdditionalExporters\Odds\OddsExporter.cs" />
     <Compile Include="AdditionalExporters\Opiu\ConsOpiu\ConsOpiuExporter.cs" />
+    <Compile Include="AdditionalExporters\Opiu\Opius\AdditionalOpiuTableExporter.cs" />
     <Compile Include="AdditionalExporters\Opiu\Opius\OpiusExporter.cs" />
+    <Compile Include="AdditionalExporters\Stylers\OpiuStyler.cs" />
     <Compile Include="AdditionalModels\BalanceHeaderElement.cs" />
     <Compile Include="AdditionalModels\BalanceHeaderModel.cs" />
     <Compile Include="Helpers\DataInitializer.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="Helpers\ParagraphStyleHelper.cs" />
     <Compile Include="Helpers\ParseHelper.cs" />
     <Compile Include="Helpers\RegExpHelper.cs" />
+    <Compile Include="Helpers\TableCellStyler.cs" />
     <Compile Include="Helpers\TableDataInitializer.cs" />
     <Compile Include="Helpers\TableStyleGenerator.cs" />
     <Compile Include="Helpers\ValueConverter.cs" />
@@ -94,6 +98,8 @@
     <Compile Include="Models\HardModels\Opiu\ConsFinDataOpiuModel.cs" />
     <Compile Include="Models\HardModels\Opiu\FinDataOpiuCompanyModel.cs" />
     <Compile Include="Models\HardModels\Opiu\FinDataOpiuModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\LoanContributionDetailsModel.cs" />
+    <Compile Include="Models\HardModels\Opiu\OpiuCommentsModel.cs" />
     <Compile Include="Models\HardModels\Opiu\OpiuModel.cs" />
     <Compile Include="Models\HardModels\Opiu\OpiuMonthModel.cs" />
     <Compile Include="Models\HardModels\Opiu\OpiuTableArray.cs" />
