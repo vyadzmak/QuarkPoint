@@ -17,7 +17,7 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.Opius
     {
         private static List<OpiuCommentsModel> comments = new List<OpiuCommentsModel>();
         #region helpers
-        private static void AddHoryzontalPage(Body body)
+        public static void AddHoryzontalPage(Body body)
         {
             try
             {
@@ -452,7 +452,7 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Opiu.Opius
 
                     if (model.TotalRealtedCompanyRevenue != null && model.RelatedCompanyRevenues != null)
                     {
-                        AdditionalOpiuTableExporter.ExportRelatedCompanyRevenue(body, model.RelatedCompanyRevenues, model.TotalRealtedCompanyRevenue);
+                        AdditionalOpiuTableExporter.ExportRelatedCompanyRevenue(body,model, model.RelatedCompanyRevenues, model.TotalRealtedCompanyRevenue);
                     }
                     index++;
                     Run run = new Run();

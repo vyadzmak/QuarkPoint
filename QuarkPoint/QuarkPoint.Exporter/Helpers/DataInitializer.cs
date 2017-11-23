@@ -25,6 +25,10 @@ namespace QuarkPoint.Exporter.Helpers
                     {
                         line = line.Replace(variableModel.Name, rs);
                     }
+                    else
+                    {
+                        line = "-";
+                    }
                 }
                 return line;
             }

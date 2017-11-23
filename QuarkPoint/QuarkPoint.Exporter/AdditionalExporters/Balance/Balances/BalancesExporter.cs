@@ -22,6 +22,11 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Balance.Balances
         {
             try
             {
+                //Paragraph paragraph = new Paragraph(
+                //    new Run(
+                //        new Break() { Type = BreakValues.Page }));
+
+                //body.Append(paragraph);
                 string header = "БАЛАНС ";
                 header +="\""+mdl.CompanyName+"\"";
                 //header += ")";

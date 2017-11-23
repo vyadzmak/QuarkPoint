@@ -21,6 +21,10 @@ namespace QuarkPoint.Exporter.Models.HardModels.Opiu
 
         public string Name { get; set; }
 
+        public string BankName { get; set; }
+
+        public bool IsCurrent { get; set; }
+        public bool IsPrincipal { get; set; }
         public double ForOpiu { get; set; }
 
         public LoanType LoanType { get; set; }
@@ -35,6 +39,11 @@ namespace QuarkPoint.Exporter.Models.HardModels.Opiu
         public double TotalForOpiu { get; set; }
 
         public List<LoanContributionRow> Rows { get; set; }
+
+        public string Name { get; set; }
+
+        
+
         public string Comments { get; set; }
     }
 }

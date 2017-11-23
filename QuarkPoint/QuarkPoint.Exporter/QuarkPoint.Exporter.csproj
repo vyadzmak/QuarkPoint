@@ -66,6 +66,7 @@
     <Compile Include="AdditionalExporters\Opiu\ConsOpiu\ConsOpiuExporter.cs" />
     <Compile Include="AdditionalExporters\Opiu\Opius\AdditionalOpiuTableExporter.cs" />
     <Compile Include="AdditionalExporters\Opiu\Opius\OpiusExporter.cs" />
+    <Compile Include="AdditionalExporters\Stylers\OddsStyler.cs" />
     <Compile Include="AdditionalExporters\Stylers\OpiuStyler.cs" />
     <Compile Include="AdditionalModels\BalanceHeaderElement.cs" />
     <Compile Include="AdditionalModels\BalanceHeaderModel.cs" />

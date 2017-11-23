@@ -11,7 +11,7 @@ namespace QuarkPoint.Exporter.Models.TemplateModels
     /// <summary>
     /// element type
     /// </summary>
-    public enum ElementType { Текст =0, Таблица =1, Список =2,Перенос =3, КонсБаланс =4, Балансы=5, КонсОпиу=6, ОПиУ=7, ОДДС=8}
+    public enum ElementType { Текст =0, Таблица =1, Список =2,Перенос =3, КонсБаланс =4, Балансы=5, КонсОпиу=6, ОПиУ=7, ОДДС=8, РазрывСтраницы=9}
 
     /// <summary>
     /// template element

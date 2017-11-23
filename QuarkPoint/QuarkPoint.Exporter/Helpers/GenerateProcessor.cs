@@ -82,6 +82,10 @@ namespace QuarkPoint.Exporter.Helpers
                         case ElementType.ОДДС:
                             OddsExporter.ExportOdds(currentProject,body);
                             break;
+
+                        case ElementType.РазрывСтраницы:
+                            OpiusExporter.AddHoryzontalPage(body);
+                            break;
                     }
                 }
                 wordDocument.Close();

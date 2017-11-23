@@ -18,6 +18,11 @@ namespace QuarkPoint.Exporter.AdditionalExporters.Balance.ConsBalance
         {
             try
             {
+                //Paragraph paragraph = new Paragraph(
+                //    new Run(
+                //        new Break() { Type = BreakValues.Page }));
+
+                //body.Append(paragraph);
                 string header = "КОНСОЛИДИРОВАННЫЙ БАЛАНС (";
                 int count = 0;
                 foreach (var company in mdl.Companies)

@@ -35,6 +35,11 @@ namespace QuarkPoint.Exporter.Helpers
 
                 string sType = rType.FullName;
 
+                object ex = var[name];
+                if (ex == null)
+                {
+                    string p = "";
+                }
                 return var[name];
             }
             catch (Exception e)
@@ -61,6 +66,11 @@ namespace QuarkPoint.Exporter.Helpers
                 string r = res.Value.ToString();
                 
                 string tName = res.Type.ToString();
+
+                if (r.StartsWith("{"))
+                {
+                    string u = "";
+                }
 
                 if (tName.Equals("Date"))
                 {

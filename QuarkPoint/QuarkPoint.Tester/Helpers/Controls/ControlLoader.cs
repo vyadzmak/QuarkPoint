@@ -79,6 +79,10 @@ namespace QuarkPoint.Tester.Helpers.Controls
                     case ElementType.ОДДС:
                         LoadControl(null);
                         break;
+
+                    case ElementType.РазрывСтраницы:
+                        LoadControl(null);
+                        break;
                 }
 
 

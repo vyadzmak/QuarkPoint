@@ -110,6 +110,10 @@ namespace QuarkPoint.Tester.UI
                             element.ElementType = ElementType.ОДДС;
                             element.SystemObject = new object();
                             break;
+                        case ElementType.РазрывСтраницы:
+                            element.ElementType = ElementType.РазрывСтраницы;
+                            element.SystemObject = new object();
+                            break;
                     }
                     template.Changed = true;
                     this.Close();
